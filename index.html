@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 My Money</title>
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --text: #1d1d1f;
+  --text2: #6e6e73;
+  --text3: #aeaeb2;
+  --border: rgba(0,0,0,0.08);
+  --accent: #0071e3;
+  --green: #1d9e75;
+  --red: #e24b4a;
+  --radius: 14px;
+  --radius-sm: 10px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1c1c1e;--card:#2c2c2e;--text:#f5f5f7;
+    --text2:#98989d;--text3:#636366;--border:rgba(255,255,255,0.08);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.container{max-width:680px;margin:0 auto;padding:32px 16px 80px}
+
+/* Header */
+.header{margin-bottom:28px}
+.header-title{font-size:26px;font-weight:600;letter-spacing:-0.4px}
+.header-sub{font-size:13px;color:var(--text2);margin-top:3px}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-bottom:20px;background:var(--card);padding:4px;border-radius:var(--radius-sm);border:0.5px solid var(--border)}
+.tab{flex:1;font-size:13px;font-weight:500;padding:8px;border:none;border-radius:8px;background:transparent;color:var(--text2);cursor:pointer;transition:all 0.15s}
+.tab.active{background:var(--bg);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+
+/* Cards */
+.card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:10px}
+.card-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:12px}
+
+/* Market grid */
+.market-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.market-item{background:var(--bg);border-radius:var(--radius-sm);padding:12px}
+.market-label{font-size:11px;color:var(--text2);margin-bottom:4px}
+.market-price{font-size:18px;font-weight:600;color:var(--text)}
+.market-chg{font-size:12px;margin-top:2px}
+.up{color:var(--red)}
+.down{color:#1261c4}
+
+/* AI comment */
+.ai-text{font-size:14px;color:var(--text);line-height:1.7}
+.ai-section{padding:10px 0;border-bottom:0.5px solid var(--border)}
+.ai-section:last-child{border-bottom:none;padding-bottom:0}
+
+/* News */
+.news-item{padding:12px 0;border-bottom:0.5px solid var(--border)}
+.news-item:last-child{border-bottom:none;padding-bottom:0}
+.news-source{font-size:10px;font-weight:600;color:var(--accent);margin-bottom:4px}
+.news-title{font-size:13px;color:var(--text);line-height:1.5;text-decoration:none;display:block}
+.news-title:hover{color:var(--accent)}
+.news-badge{display:inline-block;font-size:9px;font-weight:600;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle}
+.badge-속보{background:#fde8e8;color:#c84a31}
+.badge-분석{background:#e8f0fd;color:#185fa5}
+.badge-국내{background:#eaf3de;color:#3b6d11}
+
+/* YouTube */
+.yt-card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+.yt-header{display:flex;align-items:center;gap:12px;padding:16px;cursor:pointer;user-select:none}
+.yt-avatar{width:36px;height:36px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.yt-info{flex:1}
+.yt-name{font-size:14px;font-weight:500;color:var(--text)}
+.yt-meta{font-size:11px;color:var(--text2);margin-top:2px}
+.yt-badge-new{font-size:9px;font-weight:700;background:#e24b4a;color:#fff;padding:2px 5px;border-radius:3px;margin-left:6px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.chevron{font-size:11px;color:var(--text3);transition:transform 0.2s}
+.yt-card.open .chevron{transform:rotate(180deg)}
+.yt-body{display:none;border-top:0.5px solid var(--border);padding:16px;background:var(--bg)}
+.yt-card.open .yt-body{display:block}
+.yt-updated{font-size:10px;color:var(--text3);margin-bottom:12px}
+.yt-summary{font-size:13px;color:var(--text);line-height:1.7;white-space:pre-wrap}
+.yt-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);text-decoration:none;margin-top:12px}
+.yt-link:hover{text-decoration:underline}
+
+/* Toggle */
+.toggle-wrap{position:relative;width:36px;height:20px;flex-shrink:0}
+.toggle-input{opacity:0;width:0;height:0;position:absolute}
+.toggle-track{position:absolute;inset:0;background:var(--border);border-radius:10px;cursor:pointer;transition:background 0.2s}
+.toggle-input:checked+.toggle-track{background:var(--green)}
+.toggle-thumb{position:absolute;width:16px;height:16px;background:white;border-radius:50%;top:2px;left:2px;transition:left 0.2s;pointer-events:none;box-shadow:0 1px 2px rgba(0,0,0,0.2)}
+.toggle-input:checked~.toggle-thumb{left:18px}
+
+/* Section label */
+.section-label{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:8px}
+
+/* Updated */
+.updated{text-align:center;font-size:10px;color:var(--text3);padding:16px 0}
+
+/* Tab content */
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Loading */
+.loading{text-align:center;color:var(--text3);font-size:13px;padding:40px 0}
+
+/* No data */
+.no-data{text-align:center;color:var(--text3);font-size:13px;padding:24px 0}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-title">4 My Money</div>
+    <div class="header-sub" id="header-date">로딩 중...</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('invest',this)">투자 브리핑</button>
+    <button class="tab" onclick="switchTab('youtube',this)">YouTube 요약</button>
+  </div>
+
+  <!-- 투자 탭 -->
+  <div class="tab-content active" id="tab-invest">
+    <div class="loading" id="invest-loading">데이터 불러오는 중...</div>
+    <div id="invest-content" style="display:none">
+
+      <!-- AI 시황 -->
+      <div class="card">
+        <div class="card-title">AI 시황</div>
+        <div id="ai-comment" class="ai-text"></div>
+      </div>
+
+      <!-- 주요 시장 -->
+      <div class="card">
+        <div class="card-title">주요 시장</div>
+        <div class="market-grid" id="market-grid"></div>
+      </div>
+
+      <!-- 뉴스 -->
+      <div class="card">
+        <div class="card-title">주요 뉴스</div>
+        <div id="news-list"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- YouTube 탭 -->
+  <div class="tab-content" id="tab-youtube">
+    <div class="loading" id="yt-loading">데이터 불러오는 중...</div>
+    <div id="yt-content" style="display:none"></div>
+  </div>
+
+  <div class="updated" id="updated"></div>
+</div>
+
+<script>
+const DATA_URL    = 'https://raw.githubusercontent.com/Dalbonz/4-my-money/main/data.json';
+const YOUTUBE_URL = 'https://raw.githubusercontent.com/Dalbonz/4-my-money/main/youtube.json';
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+function fmt(v, d=2) {
+  if (v == null || isNaN(v)) return '-';
+  return Number(v).toLocaleString(undefined, {minimumFractionDigits:d, maximumFractionDigits:d});
+}
+function sign(v) { return v >= 0 ? '+' : ''; }
+function cls(v)  { return v > 0 ? 'up' : v < 0 ? 'down' : ''; }
+
+async function loadInvest() {
+  try {
+    const r = await fetch(DATA_URL + '?t=' + Date.now());
+    if (!r.ok) throw new Error('fetch fail');
+    const d = await r.json();
+
+    // Date
+    const dt = d.updated ? new Date(new Date(d.updated).getTime() + 9*3600000) : new Date();
+    document.getElementById('header-date').textContent = dt.toLocaleDateString('ko-KR', {year:'numeric',month:'long',day:'numeric',weekday:'short'}) + ' 기준';
+    document.getElementById('updated').textContent = '마지막 업데이트: ' + dt.toLocaleString('ko-KR') + ' KST';
+
+    // AI comment
+    const ac = d.ai_comment;
+    const aiEl = document.getElementById('ai-comment');
+    if (ac && typeof ac === 'object') {
+      let html = '';
+      if (ac.summary) html += '<div class="ai-section" style="font-weight:500">' + ac.summary + '</div>';
+      if (ac.kr)      html += '<div class="ai-section">' + ac.kr + '</div>';
+      if (ac.us)      html += '<div class="ai-section">' + ac.us + '</div>';
+      if (ac.pick)    html += '<div class="ai-section" style="white-space:pre-line">' + ac.pick + '</div>';
+      if (ac.warn)    html += '<div class="ai-section">' + ac.warn + '</div>';
+      aiEl.innerHTML = html;
+    } else {
+      aiEl.textContent = ac || '시황 데이터 없음';
+    }
+
+    // Market
+    const MARKET_KEYS = [
+      {k:'kospi',  l:'코스피'},  {k:'kosdaq', l:'코스닥'},
+      {k:'nasdaq', l:'나스닥'}, {k:'sp500',  l:'S&P500'},
+      {k:'usdkrw', l:'달러/원'},{k:'gold',   l:'금'},
+      {k:'oil',    l:'WTI'},    {k:'vix',    l:'VIX'},
+    ];
+    const grid = document.getElementById('market-grid');
+    grid.innerHTML = MARKET_KEYS.map(item => {
+      const m = d.market?.[item.k];
+      if (!m) return '';
+      const c = cls(m.change);
+      return `<div class="market-item">
+        <div class="market-label">${item.l}</div>
+        <div class="market-price">${fmt(m.price)}</div>
+        <div class="market-chg ${c}">${sign(m.change)}${fmt(m.change)} (${sign(m.pct)}${fmt(m.pct)}%)</div>
+      </div>`;
+    }).join('');
+
+    // News
+    const news = d.news || [];
+    const newsList = document.getElementById('news-list');
+    if (!news.length) {
+      newsList.innerHTML = '<div class="no-data">뉴스 없음</div>';
+    } else {
+      newsList.innerHTML = news.map(n =>
+        `<div class="news-item">
+          <div class="news-source">${n.source}<span class="news-badge badge-${n.category}">${n.category}</span></div>
+          <a class="news-title" href="${n.link}" target="_blank">${n.title}</a>
+        </div>`
+      ).join('');
+    }
+
+    document.getElementById('invest-loading').style.display = 'none';
+    document.getElementById('invest-content').style.display = 'block';
+
+  } catch(e) {
+    document.getElementById('invest-loading').textContent = '데이터를 불러오지 못했습니다';
+  }
+}
+
+async function loadYoutube() {
+  try {
+    const r = await fetch(YOUTUBE_URL + '?t=' + Date.now());
+    if (!r.ok) throw new Error('fetch fail');
+    const d = await r.json();
+    const channels = d.channels || [];
+    const el = document.getElementById('yt-content');
+
+    if (!channels.length) {
+      el.innerHTML = '<div class="no-data">요약 데이터 없음</div>';
+    } else {
+      el.innerHTML = channels.map((ch, i) => {
+        const dt = ch.updated ? new Date(new Date(ch.updated).getTime() + 9*3600000).toLocaleString('ko-KR') : '';
+        const isNew = ch.updated && (Date.now() - new Date(ch.updated).getTime()) < 6*3600000;
+        return `<div class="yt-card" id="ytcard${i}">
+          <div class="yt-header" onclick="toggleYt('ytcard${i}')">
+            <div class="yt-avatar">${ch.icon || '▶'}</div>
+            <div class="yt-info">
+              <div class="yt-name">${ch.name}${isNew ? '<span class="yt-badge-new">NEW</span>' : ''}</div>
+              <div class="yt-meta">${dt}</div>
+            </div>
+            <span class="chevron">&#8964;</span>
+          </div>
+          <div class="yt-body">
+            <div class="yt-updated">${dt} 발송</div>
+            <div class="yt-summary">${ch.summary || '요약 없음'}</div>
+            ${ch.videoId ? `<a class="yt-link" href="https://youtube.com/watch?v=${ch.videoId}" target="_blank">원본 영상 보기 ↗</a>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    document.getElementById('yt-loading').style.display = 'none';
+    el.style.display = 'block';
+
+  } catch(e) {
+    document.getElementById('yt-loading').textContent = '데이터를 불러오지 못했습니다';
+  }
+}
+
+function toggleYt(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+// Init
+loadInvest();
+loadYoutube();
+</script>
+</body>
+</html>
