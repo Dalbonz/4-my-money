@@ -9,35 +9,32 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif;background:var(--parchment);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
 
-/* NAV */
 .gnav{position:sticky;top:0;z-index:100;height:44px;background:rgba(29,29,31,0.94);backdrop-filter:saturate(180%) blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:.5px solid rgba(255,255,255,0.08)}
-.gnav-logo{font-size:15px;font-weight:600;color:#fff;letter-spacing:-.3px}.gnav-logo span{color:var(--pd)}
+.gnav-logo{display:flex;align-items:center}
+.gnav-logo img{height:20px;filter:brightness(0) invert(1);opacity:0.9}
 .gnav-r{display:flex;align-items:center;gap:10px}
 .gnav-date{font-size:11px;color:rgba(255,255,255,.4)}
 .gnav-admin{display:flex;align-items:center;gap:4px;padding:4px 10px;border:.5px solid rgba(255,255,255,.2);border-radius:9999px;background:transparent;color:rgba(255,255,255,.7);font-size:11px;font-weight:500;cursor:pointer;font-family:inherit}
 
-/* TAB BAR */
 .tbar{position:sticky;top:44px;z-index:99;background:rgba(245,245,247,.94);backdrop-filter:saturate(180%) blur(20px);border-bottom:.5px solid var(--hls);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 4px}
 .tbar::-webkit-scrollbar{display:none}
 .ti{display:flex;align-items:center;gap:5px;padding:12px 14px 10px;border:none;background:transparent;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0;font-family:inherit;transition:all .15s}
 .ti.active{color:var(--primary);border-bottom-color:var(--primary)}
 .ti svg{opacity:.45;transition:opacity .15s}.ti.active svg{opacity:1}
 
-/* PAGES */
 .main{padding-bottom:32px}
 .page{display:none}.page.active{display:block}
 
-/* TILES */
 .tile{background:var(--canvas);padding:20px;border-bottom:.5px solid var(--hl)}
 .tile-p{background:var(--parchment);padding:20px;border-bottom:.5px solid var(--hl)}
 
-/* TYPE */
-.slabel{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
+/* ── 타이틀 볼드 ── */
+.slabel{font-size:11px;font-weight:800;color:var(--ink);letter-spacing:.3px;text-transform:uppercase;margin-bottom:12px}
+
 .sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .sec-hd .slabel{margin-bottom:0}
 .btn-sm{display:flex;align-items:center;gap:4px;padding:5px 10px;border:.5px solid var(--hls);border-radius:9999px;background:transparent;color:var(--muted);font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap}
 
-/* INSIGHT CARDS */
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .card{background:var(--parchment);border-radius:14px;padding:14px;border:.5px solid var(--hl)}
 .card.full{grid-column:1/-1}
@@ -48,7 +45,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .tag-s{background:rgba(255,59,48,.1);color:#c0392b}
 .tag-w{background:rgba(0,102,204,.1);color:var(--primary)}
 
-/* MARKET */
 .mscroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .mscroll::-webkit-scrollbar{display:none}
 .mchip{min-width:96px;flex-shrink:0;background:var(--canvas);border-radius:12px;padding:11px 13px;border:.5px solid var(--hls);cursor:pointer;transition:border-color .15s}
@@ -58,17 +54,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .mchg{font-size:11px;font-weight:500;margin-top:2px}
 .up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--muted)}
 
-/* PERIOD TABS */
 .ptabs{display:flex;gap:4px;margin:10px 0 8px}
 .ptab{font-size:12px;font-weight:500;padding:4px 10px;border:none;background:transparent;color:var(--muted);border-radius:9999px;cursor:pointer;font-family:inherit}
 .ptab.active{background:var(--primary);color:#fff}
 
-/* CHART */
-.cwrap{height:80px;border-radius:10px;overflow:hidden;background:var(--parchment);margin:8px 0;position:relative}
-.cwrap svg{position:absolute;inset:0}
+/* ── 차트: 타일 전체 폭 ── */
+.cwrap-full{height:80px;background:var(--parchment);margin:8px -20px;position:relative;overflow:hidden;width:calc(100% + 40px)}
+.cwrap-full svg{display:block;width:100%;height:80px}
 .caxis{display:flex;justify-content:space-between;font-size:9px;color:var(--muted2);padding:0 2px;margin-bottom:8px}
 
-/* ACCORDION */
 .acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 0;border:none;background:transparent;cursor:pointer;font-family:inherit}
 .acc-label{font-size:13px;font-weight:500;color:var(--primary)}
 .acc-chev{transition:transform .2s;color:var(--muted2)}
@@ -76,32 +70,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .acc-body{display:none;padding-top:2px}
 .acc-btn.open+.acc-body{display:block}
 
-/* SUB TABS */
 .stabs{display:flex;background:rgba(0,0,0,.06);border-radius:9px;padding:2px;margin-bottom:14px}
 .stab{flex:1;font-size:13px;font-weight:500;padding:6px;border:none;background:transparent;color:var(--muted);border-radius:7px;cursor:pointer;font-family:inherit;transition:all .15s}
 .stab.active{background:var(--canvas);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
 
-/* CAT TABS */
 .ctabs{display:flex;overflow-x:auto;scrollbar-width:none;margin-bottom:14px;border-bottom:.5px solid var(--hl)}
 .ctabs::-webkit-scrollbar{display:none}
 .ctab{font-size:11px;font-weight:600;color:var(--muted);padding:6px 12px 10px;border:none;background:transparent;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.3px;border-bottom:2px solid transparent;margin-bottom:-.5px;font-family:inherit}
 .ctab.active{color:var(--ink);border-bottom-color:var(--ink)}
 
-/* SORT BTN */
-.sort-row{display:flex;align-items:center;gap:6px;margin-bottom:12px}
 .sort-btn{font-size:11px;font-weight:500;padding:4px 10px;border:.5px solid var(--hls);border-radius:9999px;background:transparent;color:var(--muted);cursor:pointer;font-family:inherit}
 .sort-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-/* TABLE */
-.dtable{width:100%;border-collapse:collapse}
+/* ── 주식 표 ── */
+.dtable{width:100%;border-collapse:collapse;table-layout:fixed}
 .dtable th{font-size:11px;font-weight:600;color:var(--muted);text-align:right;padding:5px 4px;border-bottom:.5px solid var(--hl);letter-spacing:.2px}
-.dtable th:first-child{text-align:left}
+.dtable th:first-child{text-align:left;width:24%}
+.dtable th:nth-child(2){width:20%}
+.dtable th:nth-child(3){width:15%}
+.dtable th:nth-child(4){width:15%}
+.dtable th:nth-child(5){width:26%;text-align:center}
 .dtable td{font-size:13px;color:var(--ink);text-align:right;padding:9px 4px;border-bottom:.5px solid var(--hl);letter-spacing:-.1px}
-.dtable td:first-child{text-align:left;font-weight:500}
+.dtable td:first-child{text-align:left;font-weight:600}
 .dtable tr:last-child td{border-bottom:none}
-.spark-td{width:60px;padding:4px!important;vertical-align:middle}
+.spark-td{padding:4px 2px!important;vertical-align:middle;text-align:center!important}
+.spark-td svg{display:block;width:100%;height:32px}
 
-/* NEWS */
 .ni{padding:12px 0;border-bottom:.5px solid var(--hl)}
 .ni:last-child{border-bottom:none}
 .ni-top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
@@ -113,10 +107,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .b-글로벌{background:rgba(255,149,0,.1);color:#b36200}
 .ni-title{font-size:14px;color:var(--ink);line-height:1.5;letter-spacing:-.1px}
 
-/* MEDIA CARD */
 .mcard{background:var(--canvas);border-radius:14px;border:.5px solid var(--hl);margin-bottom:10px;overflow:hidden}
 .mcard-hd{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
-.mcard-av{width:38px;height:38px;border-radius:10px;background:var(--parchment);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:var(--muted)}
 .mcard-info{flex:1;min-width:0}
 .mcard-name{font-size:14px;font-weight:500;color:var(--ink);display:flex;align-items:center;gap:6px;flex-wrap:wrap;letter-spacing:-.1px}
 .mcard-preview{font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -130,7 +122,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .mcard.open .mcard-body{display:block}
 .mlink{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--primary);margin-top:10px;text-decoration:none}
 
-/* PORTFOLIO */
 .pf-hero{background:var(--canvas);padding:24px 20px 20px;border-bottom:.5px solid var(--hl)}
 .pf-owner{display:flex;gap:6px;margin-bottom:20px}
 .pf-otab{flex:1;padding:8px;border:.5px solid var(--hls);border-radius:10px;background:transparent;color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
@@ -139,33 +130,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .pf-total-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.3px;margin-bottom:6px}
 .pf-total-val{font-size:34px;font-weight:600;color:var(--ink);letter-spacing:-.8px;line-height:1}
 .pf-total-chg{font-size:14px;font-weight:500;margin-top:6px}
-.pf-donut-row{display:flex;align-items:center;gap:20px;margin-bottom:20px}
-.pf-legend{flex:1}
-.pf-leg-item{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.pf-leg-item:last-child{margin-bottom:0}
-.pf-leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.pf-leg-name{flex:1;font-size:13px;color:var(--muted)}
-.pf-leg-val{font-size:13px;font-weight:600;color:var(--ink)}
-.pf-leg-pct{font-size:11px;color:var(--muted2);margin-left:4px}
 .pf-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .pf-kpi-card{background:var(--parchment);border-radius:12px;padding:12px;text-align:center;border:.5px solid var(--hl)}
 .pf-kpi-label{font-size:10px;color:var(--muted);margin-bottom:4px;font-weight:600;letter-spacing:.2px}
 .pf-kpi-val{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.3px}
 
-/* PORTFOLIO TABLE */
-.pf-stock-row{display:flex;align-items:center;gap:0;padding:12px 0;border-bottom:.5px solid var(--hl)}
+.pf-stock-row{display:flex;align-items:center;padding:12px 0;border-bottom:.5px solid var(--hl);overflow:hidden}
 .pf-stock-row:last-child{border-bottom:none}
-.pf-stock-info{flex:1;min-width:0}
-.pf-stock-name{font-size:14px;font-weight:500;color:var(--ink);letter-spacing:-.1px}
-.pf-stock-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.pf-stock-price{text-align:right;margin-right:10px}
-.pf-stock-cur{font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.2px}
-.pf-stock-avg{font-size:11px;color:var(--muted);margin-top:1px}
-.pf-stock-ret{text-align:right;min-width:54px}
-.pf-stock-pct{font-size:14px;font-weight:600;letter-spacing:-.2px}
-.pf-stock-amt{font-size:11px;margin-top:1px}
+.pf-stock-info{flex:1;min-width:0;overflow:hidden}
+.pf-stock-name{font-size:13px;font-weight:500;color:var(--ink);letter-spacing:-.1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-stock-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.pf-stock-price{text-align:right;margin-right:8px;flex-shrink:0}
+.pf-stock-cur{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-.2px;white-space:nowrap}
+.pf-stock-avg{font-size:10px;color:var(--muted);margin-top:1px;white-space:nowrap}
+.pf-stock-ret{text-align:right;flex-shrink:0;min-width:48px}
+.pf-stock-pct{font-size:13px;font-weight:600;letter-spacing:-.2px;white-space:nowrap}
+.pf-stock-amt{font-size:10px;margin-top:1px;white-space:nowrap}
 
-/* CASH / SAVINGS */
 .cash-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:.5px solid var(--hl)}
 .cash-row:last-child{border-bottom:none}
 .cash-bank{font-size:14px;font-weight:500;color:var(--ink)}
@@ -180,7 +161,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .sav-item .sl{font-size:10px;color:var(--muted);margin-bottom:2px}
 .sav-item .sv{font-size:13px;font-weight:500;color:var(--ink)}
 
-/* SHEET */
 .s-ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.4);backdrop-filter:blur(4px)}
 .s-ov.show{display:block}
 .sheet{position:fixed;bottom:0;left:0;right:0;z-index:201;background:var(--canvas);border-radius:20px 20px 0 0;padding:0 0 48px;max-height:88vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,.72,0,1)}
@@ -194,7 +174,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .s-sect:first-child{margin-top:0}
 .s-note{padding:14px;background:var(--parchment);border-radius:12px;font-size:13px;color:var(--muted);line-height:1.6;margin-top:12px}
 
-/* EDIT ROW */
 .erow{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:.5px solid var(--hl)}
 .erow:last-of-type{border-bottom:none}
 .eav{width:36px;height:36px;border-radius:10px;background:var(--parchment);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:600;color:var(--muted)}
@@ -216,7 +195,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .ifield:focus{border-color:var(--primary);background:var(--canvas)}
 .sfield{width:100%;padding:12px 14px;border:.5px solid var(--hls);border-radius:10px;background:var(--parchment);color:var(--ink);font-size:14px;font-family:inherit;outline:none;appearance:none;margin-bottom:10px;cursor:pointer}
 
-/* ADMIN */
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .admin-card{background:var(--parchment);border-radius:14px;padding:16px;border:.5px solid var(--hl);cursor:pointer;transition:border-color .15s}
 .admin-card:hover{border-color:var(--primary)}
@@ -238,7 +216,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 .bar-wrap{height:4px;background:var(--hls);border-radius:2px;margin-top:8px}
 .bar-fill{height:4px;border-radius:2px}
 
-/* RESPONSIVE */
 @media(min-width:768px){.cgrid{grid-template-columns:repeat(3,1fr)}.pf-kpi{grid-template-columns:repeat(3,1fr)}.admin-grid{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:1024px){body{background:#e8e8ed}.main{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hl)}.page{display:block!important;background:var(--parchment)}}
 @media(min-width:1440px){.main{max-width:1440px}}
@@ -247,9 +224,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 <body>
 
 <nav class="gnav">
-  <div class="gnav-logo">4 My <span>Money</span></div>
+  <div class="gnav-logo"><img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCANJB04DASIAAhEBAxEB/8QAHQABAQACAgMBAAAAAAAAAAAAAAECCAcJAwUGBP/EAF4QAQABAgMIAQICBAYLCwgIBwABESECAzEEBQZBUWFxgQcIEhOhIjKR0hRCUrGysxUWFyMzVWJygpXRGDZDRUZldYSFk5QkJTdTkqLi8CY0VFZkg6PBNWN0tMPE0//EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDcr8wkAKBcAk9FaagHorVAGSTUAk8wHoD0ewsAcggA9Hsp7AsHIgDloKngColFA8FSTkCRPZZJSwL7JIr0ARSKFuQHgqSQBUJIAPJ6ADwGgAagFwlAUKQAHMocwLhJ4AnUtBB6BBfRUC55CJA9HoAT2pSAFTnoSVBJqeFPQBEyAHsiSYSgMpRPzUAt0IALnskAtzCI7AEeCQANCwBWxofkSB7RZuUAgPCAtewAJ+SwJ5kFnseigCQtDsAnsKL7A/IlFjuB7KgCR3Wnc9gBoigF0r1XkB+RNC5OgEeCwAGp7IAoqXLAVK9VQCQ9EyAfki3kDwEQeQLH5IuoFQnsR4A9lygB7KgAeguBc5JzUCqR4UgBLLJSAIoSV8AFAg9gIpNQReRRAIWaABFTUAPzLeCiT4BfZ7CgHk9kFAJiOp6PRQCa8jyHoAORYAqeIAC6KAHoA9nsAPSKU7geyKdAA8hKU9gtgAIJoEgBZJBSCh+QHkueyKgSluikAeILkmgGgVr0JArB5I8EgHooVgBFjwSBY8ItQAgBFPaAvksekBblyD0AE+TUC6VVJBQv0AApJIEkEGgE9j2EgAQBfqHsAqABQKgEJ6XUAt0PIAW6HtUioATNEBawXI8AEx3PYAGpCAskGhEABQBYQAA8AFhFAL9CADwkrXsAB6KgeQ56gGoWAPAQoJryICQCoAqfkFgCDwUBaJMkWKAFSfAAFDyCKFQAleQJqABEwFgDXmGp2BZ0Qk1AINAFQkBF9Kkgcwg5AFUWQJ8keQqBJUSgLVUigC0QgACCaAIU7r4BPSxUuewJCe4BNBFAhF8JzBYEWgBBYoAnNfaAslU8rQD2KlQCglQWJQhQCklAAIk9gBJAEHkoaAolYLgT3ggmEBRJggGXhAAk5B+YHsr0RbgGpSSQLBBUDwBcD0SSagAAU7lAqAEQUAmYIJAT2oXAkk5AEQegqAFCs9AE5qAVDmcwE5rXqTcCJkIKdAAuXAjyFSoEF5AAsX6HkAkgAuEryBPRUoAEgB+YV6AB6AA9E+SI7gaBQqCpqACpJEdwKiKBfoFQCipTuRAEkWVLyC6oX5qCBMlwLBJAGhWA9AlaStagAi+wErCnoAEutAPK2TyAVPYWA8knoA9ERUsQBAAFS0hcCZAjUF5ISAAASiwcwA5AIeFgAg9kgBNQioHkoHsAqUsQBJclKSClixWAAmS8AVEXkAFO57BFgAAv0KgTJHctQigFKBfoXAuXOdyQKE3KoClCe0HkFNE07gElJLgAeiaAFErHJa9ZAKQEAFAAPBYr2BFC4HIgLgJopbmBUoAB4CfQESEICle6LQA9ABYRfIHsJoQAanspQDQoVqXAK3D0BzTms1SnUF1JAAsXolbAuoeCkgBBUAsT1PQCWXQALCU6gvsIgr3AJvyTmvkAPIBJBCATRdS/Q0AoeC56AvzErMrAGhSuh5AIPRXsQBPcJ8AJClAACsAcg9AGkIpNASLqdynMElaB7kAgsUAEotgAipOoBYuAck5rToXAoQULgJeVAEX9gBZFtPUoAHgv0AWyaQRUAPCAvo0IAK9gkgCSCTkAntaJNQW4eT9gEnIv0K8gNAKgULkAJ7F1AKHhKrHUC4TWUBRIWsAil6pPkFp3PKXhageD0HkAm4AlCsLOoB6LBMAT2K9TUAPRFQCAhQRLqWAJJ0I8gUoH5pzBYJSy+AIVIUE9FLkeT0BQIPQEdpD9gARUr0lL9AOamqSCyBUEWkpZQDmX6FZAm6V7L5JkDQvOhyPYHosW5pNOoKehKAqVlZ1LgVC9QCQAL9AinUpIEFICnUArBaDQCEXUoB+YW6lQKBfUAC1QCE5rcoCTVf2kAIsUqFAJ8HhLwvK4HkILAUD2AXKGi6gJ7P2p4BSyc1sBSSZPZIAXKdQAJACKpzBQPNAAnyQB4II1KAU6noIsBaAqeAXklS4BPgj0E2A9h7KAVXulCwE0NYKAEaLKWKABNivcDQ1g0AIIIgoAVACYoXD2BY9EAFg1AIVLVAKAR5BdUPABzJk8k9gSGXhDQCadSPJ6SkAp6SnRfQFPITJ7APQAUgoAE1CxqAIvgEqKUBIWA8gUksVJANApUEUS1QUqQSBWCDulAWe6e19oCwSlVBKTyLwsFZBPawapSQUmDyAF0ldIAgsFgLEAAEQAWDmATXqiyARIeyALyQAF+dAkAskrBcEuogEKEgk0FsAU8HkumnICKLXsQATPgtPMvQtzA0RS/MCCtz2WA9k0Sq8wAASZZIUAkiQAqigBZIovMAJP2ASU6gB4IDUCvUlJ8AFwWP2geCINCALcwkAPJQAPRKVBbciClgD8i/ULwBHgAEutg0AXkSgGqTCgAqXA/IRdAOR5IAIgAD2aHgmoGpY1KdwJLSFuoB6IKgU7gAHoqagV6nIjuSBc9ABJ5PIAJW6gVLB5APRfkeQDykrcEXUKVBFgp3QFPZpofkAABFipEgH5BPcgCChUkCakEUAANQLSBYDSShHY8gEKgEyQAHsoFJBFPJAAFwKgABSCADUKghdSQKBBcC4HcAC8gHsALklJAIJqcgCCvYAJkAA1NC4EEhQChfoABUAIqFCtgCpUAA0AqVkvIB7JTwoEKkpAKeySoFILEXKghRQACgBoX5ACKSCQvoPYAFIAC/IALE1IACUBfBoQW5gJVaQAVqE3SJAkuKAJdQSVIAAkAPBAASUIA9EBSQCTTmAWCagAABSDVPYKJHlQJELgqLcsAAATCpQCvYvySFoBQ0LkAaqngp1AE5rcAkXkCWAkDwQEgBqlgVOYykGMrYLAQSVJpIIteyLEgkKFwCpY0AAmwGpeDyWBNVgK1AD2Ai2oTdJjoCnhKAKcinUBKKWkoAHoAqTQAD2igQewgFSQkCvYIJAuejyAFjU0AIoAEgXAC5FQLVAAioFACwAWKSqAl1kvBXsCLeiLQC/MAAIUBKhMSAQRaCAJLhYE9LYAVILlQKSLVLgAQAntbEgl1uRUgCsF5ACTykVUEusFwDweQp3AkgALEzB5UEuBUC0ljwgKB7AkgrcAgJsAECgiLJIGgABJUkAhF0AkCsAFQmZACINARakdyQWENUsClRAXQAAACsxqBSARSSwBAnMFoHIANSQCgLAJoeCSgJdZSLKByRdYIiwFjkREAEEx1PBcEopSyUArRU8KBcSl7KAW7otQJuaaoAHtTwAJdbgalwAkpKarEdwKhQAE1WdAJAAgkg1BFKkwAnM8rSAAPIAljUCxMFIUDyUWqcwLnog1AKHMBI7LSQAIgoABUAsRYnsAaooAigEdikkgAAFQ9ACSoBEHIQF5EHggCoUuAVEUCwAEyiyARRKqQABXkBqCwCUOZOpMwBMhBoBJ4CLABB4AKSVQFAmIAKdA0AoACClgLcwoAaySQAEABTqIoGpoFARU1UDwSScgKF+hBIFJKABcgPALqlISy2BUAA9lykAqezQAC/UApJckgDQKnkCoU6EgWEUCgWKAFwvzA0QUAK9wCA9AFCCpYCSBKgoAFgqQBASgLQkAIk1NCoFhUpIFAsASQeCQCA0A8JEigFCD2ACyCSEgFSfAARQ0CJBZ0TkAAT2APJysagFwp3XUEAkAkpAAVAA5FIAILwQV6AalC/UuAWKdACTwAFyQBJosBIFD0AEkVPBcC8mheQD0X5l4ASndYoTbRKAoQVgC8gAJK0SewKXIKyB7T81PQGpqFAIJuigBcjyASX6gAV7EAFbk1ALhQvAGoFgIg5lZS4L4CCnQEU0JAAAIACQ5AEHkAEupIEp5W/UAPYgC2IACglAWaJCgBzIlJBbh4JALgAREISCyeULAtg1ADUPQGhYAJRZnsAV6HpKqBcK8gCsgATHQEBYJ7iayC2gAC/UsUAJChQAuUJALgAWC8Ai0ReQFggsAkKQAEoC2LHIA1RagAapSgCxc9ABqAAAFaB5AAACQAABFsiyBJzKAFYQLgvg8hqBoFYPAARIAaEgHhFtyUECS4BqUAAPQBYkAsRJYAKEUJBeTGsqABHYoBY1KAFgtyPIJdSwCQtiQAp3CwGgSctAKnNIXUEmFPzJBFEBSCABFLAFwAhUmwAVC/UCSChIFEWJgA9lIAAmhUAosooMbqaGoF+oa6AAaEgFyD2AGoBWQ9AEeF9oABXsXANAAPAAQSAFQoAU7hQAuXPAAcwAslFoAkLFwiJAABdUkguBcrJYAipTsewDQPIBWQ9J6BblO4AVAsAa6EABTuAJ5VL9VoAHo9ASUC4HIjwAFUlSASKqez0ABUCwSWBFAC/VJX2nkFIgooIaEgAeQAoAJK1EgFpc5B4kCoeSIARaFAOSQoAABQpBBz1ARZJAKFAAg9AEhqAnpYgQFmiEKCRC3AElYD2AH5lgKoqRACkFgIuaHoACQCUiFASZpIskAeSA8SB7NCng5AammpEEgW5F0WoCL6AJkSIUD2SGgEQBeoEwAB7CiALU5dQA9J6WAJBOQKeiND2AABVOa28ABSepoagBBIEAacwKB7PYCTVdDUEWCgAH5gAT5IAsEpAEdljuAEkeA0AkvAAGpcgAkJBFLHICAgoAeSewBYvIV7AAewAsewPAAERBQoAX6gagVE9LqAFj2CLJcBBSvcAsekBQAKJSSsr7AjuSigCoAck9KBEkgAEGgIKWAiCh4KgTJAegORoEeAJnseyoASaEUkAg8AHoACic1qAWD0AamgagFahqB5Kdw05AGgAXLBNAKFC4ByAqAW6rZJjtUARQNeYfkAB+YAeRAF9EV6rIJQpJWFBAkBC1VvPNAWagR4AsHgkCD8kuoBSepHckDyEAB5kjXQA9iUACFonMFkjQp3ALFCx4ASnNfSewU9l+p7Ak1OSAvoqXIjqB7PZBAIel56HugKliTyBJBbkAakeCoB6KwULdgBbJIAR5OYElyf2EAFifBUBFoewA9k+QJqEAFSvYPYGh+ZPgioJfmc1mhr2BPRdYKAV7FClNEBSxSSvYBLdF8FAEUBJWCCageyyarAJKovIEWC3YADUAoUsST5A0NQrQArUvIB5AAuW6AABIB7L9QDmnNYuUgAiewUAk05gBYk0AIJKpYFD2nMFgDnqAHlAUrTUotgStQANEmYlbHoCCh7NQKEAByI8FC3IDnpIXqUnqBHgAC3UD0ABYCxMkE0BPS09kE2AuFSncAkJBKrdIlbgejU1JrABFT2fmBIXANAnuagBMmoFT0fmAH5B7A9lSnYAoeytNQCe5CpUCi8kLgJPdfQAc0WvYChBFQA5klOoBWgW8Aa8iiac18ARQDwAqHMA8ElIA8kgBcCk9QKSBqAqU7gF+p5kAA0PIAUgAPBYuBYKlwJAAKhoBMSEFewERY0VJ8gVkipAABoAKlQCxIBIHkAgPIE0ILEgano5AASAFS/U1AuAB6NAgAgADyVSncFqFABJUkDkeITQ9gtSvYAK9RFANeRQmoBJQA8k6gBJXqE9wLCRRQPIIClkUDwH5L5BCO4cgPBUKWApUIJoAaagAVK8gDUCoF01lSI7AUKABQ8WKyAadyJ7HIoBqacknyApYAD0U5kdwWqeQAKl4NeQEkAABPYAImSQPZY8wWAJK+wD0SABJHg1BKrUAC6SAvMqi+wKBJyAWiR4PYATcp4A/MSigizCEAs1IJLAAXA1C5AATqALCAHgp3L9SZAqHs9ganoASkr5KyAW6BbocwCYAC/URQKl6hPkD0EAEAAkrHkNAKQcipWwJciLHpYA8kEyQAUvaSZL9QAnUAivMp2I7gFigagGioAHIAT2oAEHsD0TWq8k9AW6EFgC5B4ADUIsB5JKFO4Gh5KSAeDQg15gc9aqluhYApQ8GoFjsAFCehUAiO5MFzyCclgkAqi/kU6yBYJQFPZTuR4A5JzUBUoAKgAeSxABAE1AkgsQCoAHkKgAAAAFz0ewAAAXwxoCkABaSCwASWPQHsqcyQA9ABBY9AHoIAmskQqagezUixIHtUACx6AE9LBUAJI8AFO6X6KAaEFpAt0A0A01ORaQALgEyB5Agk8SAckiIWY8AFD8jQ1AoW6ABoHo8AeSxJqAVTwseACe5PgvIHoPYBIAEalUhZAJociK9AChIBQmoW5gUgigUAk5FwCqCgWCx6A9B5gArIQV7AFhAX0lVgBNV0CsgRToSFQImxfulVn2AHsgCSFlACwU7AVLFuh6A0K1OQASHoE9LJZbAkdwAIC5YCtyaEgCVWiegUoU6AHIJQF9hY1Ar0DQ8ASElAKItyZACAAk8lgIC3kALB4APIAW5Ep4hagHsAKdwPzAAAjuF5LAkql+ayAEEglqqUOQBUQF1IRY8gqBoCKSAElDUAsAFQsWAPRUAAAIguewD2HkAmAA0CgASRAAFAAuRQkCPAJWAU9ovoC5JUuAigHssJYFkioVBFgOQJRbB6AKiAoi+gKEnsAt0CkAAFJAsHk9AFjQ1AsTUPYBqewCQ01AAT0B6WLHsAKEE6gEgBAagBqAEAAHsUEmvc8nsnsAqaakSBYt1KdyY6ALKeTwBcsHoD8xItyWsAcgAKnoukgvIDyCc1Sx+YKRKVUCexQKAGqoBQsSkT2BSQsBEFAAKdT2ARSOZNzyQBfuey/UoAAB6JVPQFivQAAnyVA9FSapUFkv0F5AknI8gFAAPQW6pIKAAXRfYBQqAFZC8AKhyAmvI8yHsCS/gkioBzPYBQt1OSewPagASAEx3KBz1AKiAFBfzBIU05J7BU5mpcFLUPJ4AAuBqUCagL7EAlGSeACO5AAKkgHorQAI8pZQNEX2gLUgAPYix2AnsACKUASVgAJIJSAVYS/QuBJTqVPYAHsAAD0HMoBeALgalz2XAiAAANeYFwkvAAmqwABYCanIPQCACxcnyfkkwCkiAtLFbnIoBPlFNAAoAl6rUrPRQQAAgAPQGgEqnsioEngARUWgGqRC+ivID2BbqB7AnsBcmCK8z8wCC4BJboeiQRZRQCvQmh7APRogLc5J7WAJRSfACpU1AkuF4AnwBPkAkIuAHsAPQUBFJAOa2TmAWCQCAgAoAAT4IKgR4DsaAQT5KdwC5YALgWAgKgAX5gFwAF0TyUALkAGupYqsUBNAmoAHI1AK0AAkv0AORSQAPIUkChqAElqABQCQCsxyCgGp7LgCelKgXSVOQEFQAkKgFAhdQTwUKAAFwNDyQAeCUUACZAoqFQPZyS6+wTVRYBLhIAQToAAagEwUALnsJ7AAWAAgApIABUAp3CpAB6CO4LSqEnkFSQgEoTNDUBZSOygBQgqBqlKKAQi0AKGgUgACoFCs9CS4AUk0AuULyaAdgKVAjuTCLfmBBQ8QAWIqR4PAJdeWhJAASAAAGhMdwCqKcwTzKkwQAnNSAORUJApIRUAAAAjyASFwANAKKmoBapqcgDQigALqkgFyEpHVfYEhciARfYAcg0SoLKeFQFK9jkSACaAqe11QFPAAeQnUAqSJAKiwVgAAClilAAqQqT4AmgFwPZYL9ACkIsaASHO5IFS4UkChST2ASipqBHlSIASi3AAIAPQRUuABoCLfoABIewA0JqCKQSByIggkAqKCJVSQL8iPBoAKkEgVIKAElCCZnoBpzEsoIoAV7BUAkoWLgaIoBQK2NQOYULgAAXIvzPRQCakBQCxWAACiUgFCKkyBHcmChIEV6C1QDwFDwAFyoBUOYFT0FOgAXANRIkBSwABIBFiqKATUsoISSgLMhUAKgBJBY8ASABBcNAK8ih6S9QUFqCUiC5qW5AFCNSQFlIAKhFD2CUWBL9AUqFwKSQFgAiUBSTwU6gUAoAeQ0BUuEABUgCxoAEopIEhIBMEJZdQJktIAJRY7lgIKhGgFOhcr2PIBAlJBZORNYKgQVJNQIJhPCgkKVLyBYkK1AqULmoJMUWJJsAEz0SZmQFuQFQKGh7ANU5qgLcAAJLdwSshbkXAryULAKlAAE5guhHcSQFEioLUkgmgGhYgqCLNgsCXX2ALdJCKgFiwAXNQA8JKgASBSgFZBaJHYuX6AVCnokDRJF8AXNUmoC+SvQ0K9AW5dCgEotyAALgFEnXQAUtQAsSigAX6AUoBoAUWyVAgqAFYlFIkA5FZIgDUVJoAWEkFiAp0APZAUAkTmsgWNCKkgXFhLgJNOq1gBIlZTwvkApU8FQFQAKABIWKAkR3USAWgAFBIUCnQACoi+QCaFSwAV6EAUKh6ALFiaRzAvygvzK9QAiAmQJIK9FgGMrAVjkB6JACZIr2QgFD0AQToXAIhNJWpGoFTXQmaABUrBTuBGpepPaCoEnImZSnMF8FyoC2SFqgEynhQC5HdfKASHkrQCdEWs9kBYknwABqVqATHcSVqBURQNDU9lQKXOaayoEUFlANU0WsgFA9p4AXVL81r0A52K0NbySAEAJfmsEkABM9T8wKlagBAcyQAlAWUW4B7Ig9AFi0rNtErIBYkv0Ar2IqQU7geSxMFAAQDVdCJSagsXSVr0T2BFZUJA8ngmbEQBE3JIp0PQJKxMFuqV6AsF6ovIAKkAUNDRQT0eVsx56guhrc5gExdLrJAFYKF6lgLF1ljWoLBZKrWAKIsloBJnoLfUieoFi5SSJBFjQkgCTQrE80BSSJNQSCViJJBPC3gARaFi3WQKdCAAuEkATPUhZSKwCRWtloa6AERJTuE6AkroRCAvMLwSCeVIgA1KUJokSC2C5SQK0EIBSsBSwHJPa+wCltSChzAolVJ9AfsRZAKiU5rfoAET1AL9AuTUCTXoSXAKdC0EAeSh5AJIlJqtLASFupEgBUgAVOQEhYsBNSiVXXQCpUmvY01BJ8qR5WwIVkAJLhW4JSei8gBPCxUsSAXIiCsgFC8lAKHkAKyVPQAVCgHg1LFegFIKABUk8kAUqUJIBJqvJFmvQCOwkXAXmSLNASCNQrAE0ghYS4HpUPYFzQkoAXCoC0SZ6EQBAqWA9HMAKhSACpNTyAGhQ5AaGpXqeAWiHMmgFSdCJAINCTUAJALlep4JAgkqQBQkAORqVJACPZNgJoGoCUot5CoEkABMhNQClUoqAXWkh5AkEuCwVOSQChGqzoDGikEAGi2QA0NUBbIXUCsnMkgAC4AAGmpHYuQBVKStgEusByAgC4FypckE0JK9lAICZAmSBK9AWSpYqCWUpXUBPQs1QBYCoIUWtSAKwBIAUSANJ0UAKiEAtSLqgFQlAWbJVTwCVXkXQBS5UCUXUAuGpoCKAFp5nsiAAIJ7AVNQtIBdPBUFsnNdSgFSO5Q0AuF0BUIWQC55KVACkpILVFgA8yeyoBzSYotOwByRQEXQIAL0EAsty5SQLBYgAjyVg0AkuVgAAoBNSLklAKSIsgCaluQKigHksFwNCTyoJSpSSSwFLBHVAW6WKLYCvsrIAhCwAXKz0gNQIPBNDkBoQE9gLkEX1LATIi2gC4AEBFzmBoR3JAJ1KwRBzAIKwAGpBQCOxzS3MA5rBRIA1WKQRQkBFuACLACWWSnYCCyLYD2QSXAJL9E0BT2gBKlwCgRoQBJEUKngCZKgBJJ4PYFDQAAihcAKkABQA8BMgHguUJsBqB4ArJqVAAAIuBYAPByuAUPBIEQFbEARQkAFQrABBYArIciAKAAWCexQAlFkAipyIAABJWhRKAWgrVbEdgAqWAkJS8dAWoVkAqRRFAKE9gDQkr1JkAgKgBQAryL9CSoAUqTYCQKyBVFqSCVW5YAr1CoBJTqFZAoaBUBK3WqglS4AHgKxUBFKwCC3L8wE8LVAIUsVAk8Gp6ApJoaAE6JdagBRLqAQIC2ChAIpPZNNQUkKVACgCe1EqCykAClOhcAEWgASnsBZqllBFioASi6gATcgBFIkE8rJBMgng01KEAKRPUAnuQICyQESBVFkANCZQAKLQE8LSUssARYKkSB4JqVKgEeSgBSSogMrpKLUDUoVAJoRSQAmxUunkFKlC4BQJkCprySoC1k56BAF0UoAeixyBLLcK1AEWAC6UZAhcASt1RYnqBUgJAEqtAE5rUr1AsLFEBULLyBPJQqASABNiDwagBYBLVVKrUCgSRoCXWAkEUqAi0KgBJBcAKGgFiVQCIgJADUqmuoLAIC81QAuQi2BUsi0A1CdCoFiRQQKqCa6JKpYFuUSFmoAagAF4BKqWIBeSHgALhUAWqAaGpSCoGhdLSsATcPABQmKFQCKFZIAPKpJFgFskT2ALgU7gFO6L5AgsXAJkLkgaBUkCQioB6L9ivYqAEEgAcgCoVqBUgJA1Ar1ABQQJgiQCoagHooAUCJAAAAgryAg9iUBUlQDkJaQDQhSZAKxyKICxqTAVBFEgFKyESB5JryWqAV6heoBJyCvYCBL1WIAsmiyAalA9AUgRbAaEBqBYIgiwE6hJcDwBAEFBKgpoXPQFZRlVAIsaklQEVK0kFLmoCarEdC0EeQKVNCaAFUWiAQswFQS61sGoFQtyAKpK0JBKR0XwAEwRCTKgleqpS+qglFihMwgKWkSkgpdFBLLCXkBSap6UE8rZKLAFOpQucwK9iVljoCwVILAqWK0QF0KnlAW/U5lSIkC5BqAqCApPYuSCQtiLFgCpBQFsgVA0DUqBBSAjQBCFAAqAeipUCCxBMAv8AMJB7AtKHhQNAsAEwFewBeQ8ACX5qBUIAJqToXQCvcIUAC0cgAPIESSeCwFgAOQAGpciCgFZLk9ioElgkAACNAJAuSQTIEE1Ir1UEjuSe0BbAaAEBQC3Q7gBNyLAAFygELohfmBWFQA8qgBc1KyVA9kXCOwElwBI8KTJcAlYSQFhIUEKk1PAE0CO4BSYLdFqgBJMUQFoegmwHoD0BWSChAAACE15rUAqABTuSkAtQQF9hTqASHo9ARBJEkgnNRLgpKLAAWALQU6HkAgqegDyCALBc0AgmCvYAg9FQCyCggpqAlVlIqC0Typ+YF4NQBUmEnyQChBQCJPMF1gEpAHsCSxNUiO4Lcgp3QFkuUIAOZUBJWC3MAKFAEWDwX6gAegT0VldeR4gA9l+ZQEmotewBUJSoB5UAsJJAKToXAIoABYkp4LAJTuarQEouhACLE0EBSSansAjwAEkSX5AHomSPBboCUWwk9gXwqQAgKAeAkCQ9gAVSQX2npfQBUt0S66gQElgAmCKAEQVK+QVBKgtCypP7QJEkBUUp2Ag9ABQVNQFStCoEyR4NdSI7gBJHYD0FwDQm8pdeQHpU/IAC5YCtSChYA0JkiagcitggAqT3KgJC+wCoXAAuAXPJcAkCAA9AHI5FugACAsAABFCQLGhABCz5QvIGgegAPQAWJAORUv1AFQAmDwLEQCRHUuVLgUuTYrcm4Jfopc5gnNayXJ7AX6kVAAsU7gIoU6gEEHsD0eA0A9kFD8wJguqAlFJ/aABQAlFAPYUPzA9i8k/MC8EVPYBqTYr6KVAr1KlCncE8KFwJAArBryLFJ5AT4NYPYCLHgKdAS6gCe1CAJCJg9gXC/ckAkg9AiwUAKB4OQFYoeihoC2YrWCtQKgegCAAPKKCKez2BB+YAB7QC5BRQClEqt+oEgAixIlwWUUAPYkzALcrJEyABJ7Ak8EkVArQACoeQCpcUEPCoBHeSS1E9gXWpHcAuFSJqB+R7CgLZLpC+wAmSLgAnoBYp0StSAX0ULdQAnQgkD0HIBFhPCgi0uAHosey3UCChCghN0UAtQ9gEAAeQ1NAPSF+iwBF9T8iZoWkEoseCTkBcKgCLNynQEUmAD2WT8l0AL9QkAISewLdNFjye6gVCiAvmEiFJAEWQLHkjwAqBUCqKgKn7V1ATVfCeljuAQVjoVAk5CggSAXLlzkBqCAvsIAAAJqlKLJSoBboAFbHITwB6GXlAPYGgEngqT5AuBEAAWA9FCS4AQTUCO5boeSgAeioAHsD2JzZAx5qHsC4c0nyClSIK9gJDyWjmAGoB6AAL9SfBqB6PZUoAKgHsiBI8gylCe5cC/VI1Wnc8gWPR4K2uAAAEGgIqLIFCLBYDUmgUqBGiKU7geiOwgKVRYAr2IC9QDQucwNYCxNeQFDmU7kAVLrPdPYElewRUCx6PRUD0VKrcCiWPB5AsEalQLdSe5boQBHYKwT5AseCkgKx1WCgEeCTQBFmvUpTlU/IAmpQrIHIJ8EABTueQQiq1gAp1DkUAPaQAWIPa+wRYK9i4JPguyYyCwVnoley1BJWDkaAEh6BIXmekkFmE9rBqCRVZ8BHYC6Ss1qlZBS4mvYFgS5XsC+DyFewFK8ynsgACfIBXsT2J8lwSI7rQLAUOeiVWQRaJy0UDwXFgEFTmBomvNZTQBY7yegAryEBSbl6ICwk0XXke6AntYPIBXsGndL8gWpUqAi2OyUuC69iPBYiQSV5El6AJ+S+yAKdz2eJT3QFgokV6sgTUoQVAkgJkD0W5HkA1IqEeQJqVAD8ySxAIeCVBKqT4JBFhNV05AWCsV1APZYoUApzqVJJ9AVJIASBY8nsCKk+Qt0APSc1AixOpTuAT4CwBEdyUtVZA5HJLrACL5I1sCGkLJ6AC/otToBFQsgFuhWq+0BYTTuvgiOoF9SnUoU7gWKT1EmZBSCAD0VPaAtiwnoFIr1SeiwC8kjuJzBSnc9GgE9g1AA5EAU7h7XkCBpyKgFhAUkS4LBAAVIqSRQCRFABQSSLcySgB+wADyej2B4I7hSAJKdAqAaEFIAqBbkAmq+TxAFikHksBEhABIE9gAK9gKhqUAoVNAApXsfktgTQJmAA9hQEIlUBfZAkApBHgAmQoUAEmqgcgqAaFw9gHoAA9noCKlioB4gAC5qAAAElQoBUKXJAqa9kUC/UJPzAqACRqsyAJC+09L6BFSFApUsFAKdCvYrQrHQCU9LWeZ4kAOQCKR5KAAewJD0oJ7CSABfCAEeS3UuBrzNA9AVNUpdZACpqAXPBNQC4AegqVASPC6gFAAD2FQKlUWAAPyAAAuJdQPYlVAqBIF4LCAfkfmtAAr2KqCHo9H5AEyAEeCShAAHoEqpqAWCPK2BIoVFkGKwl1iAVA9gIsEgIuh6BFnyWPzBLrCL7AhJFmgEeQJsCc19JWuqgSEQAVEmAF/MrHQSkAqUWgCFxQST0TABZeRqgKlSy17AARAIoUAAAC4BTwFzkAiwAi0gALQRAgKVACp6PQBbkikAlfK17BQCTyR5ARa9iifmC6ifkv5gHk9pYFqItAJkPZUEmihQCKHs8HkCwAHgPaewX0B7BNOS17B+QHIAEUPYFiSlwC/NdEr2JAgmpc9gXIoelBD0SfkAWCIA8QB7AioXPIBpzUjuCJ6W3UsBBrzCgH5kkFQJI8AAeyxWOoKlgkCncPRNQCndAFNYS3NagGoAEQR4AJPRaoAJ7UAv3KFQPRSxpyNQPIFAJOSc1BOano9gfkGpQAKyoJHcrc8gEpCgFjwnpagSQakgE1gJBKr6SVAEW/ID8wAKFCpUBJWdGNcP8AKgGUQdk+/D1hJx4esAylPSfdE6SytS4Fj8krh5STSNZoC+6qwjFh6wv34aawCjH78M6SagyqEd1oDGZ7LHdJAWexNYWLJNwS6wlFuAEzFAC5aCncoAXLFAPBQ8KCBVKgsFUqsAVCiUjqChoeAPzPJABIAATqkgtSfKACgAElQNAoAfkBIFwixMgeypZAUImFnQES6wvoEuGpIB4hK9C/QFE9qAehQQCvYAjyi+AFrCTZKgs6iLTuBCp7KwB6WyEgegjykz3BSUhQOaUuoAT4KoBZdCgAnlS/MBFsWAEUC6e19ABYLgWQUANeYCUupKaApRAFCxAE9iPISAH5pXsCkeCs9E9gpPg8gEE+S4B+ZbnByACBAUv1DsBWQALAnoFEr2X2ABfoARUIAKdgA9AAFuoeQSkrFQ8AJMqAe0LAKkqkdwUAA/aansCgRUsAegA8yFAA0Jkr2Ai4RBMgWqfmUABIUChEHsAkgANZLBOoAXXQEpAFgFSStACSoByINQAoAFaEhQCpoej2BBKoB5JJASIUoAXRazCgxUnyAQFigIpQAIJIgDUJWgJPYCPIBZaIBQJAIKJ7UChYL9AC5KAtAgBJ8rAtwTwBcA1EqC0kRQPRJCgx1WMMVKpMTPMHpOM9r2jY+Fd9bTs2diys7J3ftGZlY8OuDFhy8UxMeJhoXuz5h+XNu/Cydk404g2raMWCsZeTl4MzHNIvNMOCZb2cf4ZngriCOf8AYvav6nE0j+jLLx4fnXclZm+xbTH/ALmEHjzvkL57mP0d8caU/wD6Cf8A/k/Pj+QPnjLy8edn7/4yycrLwzix5mPY5w4cMdZmcukQ7BMuMGGZ++Z9y9DHF3Ce08Y5/BmHe+yZu+8vZvx87YPuri/Dm0xPKZpecOtLzFAayfT79Qm8d37wjcfyLvbN23YdqzK5G9c6n37Nin+LmUiK5c9f4vhtHxVsO17/AOGs/Yd1b+2ndG0Z+XGPZt47HOHFiwTrhxXiYxYZ5xzhqv8AUz8E5u542njHgfYseZuma5m3buysNcWy9czLjnl9cP8AF5Wel+mn53z+EM3Z+E+Ltpx53DeZMYdl2vFXFi3fM6RXWcqf/d1i1gfg4t+Tvm74940x7n3/AMUbdi23Ys2McZedl5eLZ9ry62xR+hE4sGKOk1jTWGyXBfHm7/mf462nBw/v/buHN/YMGH+EYdmxYZztizeWKkxTHlTPPnFrS9x8s/HHDfypwpg2Tb5wYM/Dg/E3bvTJpixZM4orE4Z0xYMVq4dJj1LSLbt3cdfC/wAkYYjHj3bvjYp+7JzsFcWRteTM6xW2PLxaTE6TaaTAPseL+KPqL4b4g2vce3b54rzdo2bH9v4uybJ+LlZuH+LjwYsOXNcMxfrGk3h6nBx78/48VJ3vxrHnd+KP/wDE2++D/lDcnyXuCNo2X7Nk3xs+GP4fu/Fjriyp/lYf5WXM6T6m+vIOOMM5sfZM18g0Z+KflP5J2z5Q4Z3VvTjPe+fs20b42fZ9p2fO+ymPDizYw4sGKPtrHOJ5t64mfxaVs67eFozf90vu2L1/tyj/APvZdh+XX776g80zQiZWCQSjHFijDNK3WZmJeHFNc+PMA452z54+KNk2rO2baONNgy83JzMWXmYZy82Zw4omkxbB1YYfn/4jmLcbbB/3Gd+40M4xysEcW77py3jtH9ZL7bhz4G+T+IOH9g37ujdWwZ2wbfkYc/Z8eLeGDBM4MWlYmLT2Bt9Pz98Rx/y22D/uM79xhP1A/EX/AN99g/7nO/capT9N/wAwz/xDu/8A1nl/7Fy/pn+XcV8W5d3YfO88H+wG3O7Pm34q3jm4crZ+OtyxixaRnZ/4X544h93u3eOwbx2XDtW79s2fbNnxfq52Rm4czBPicMzDr/3v8AfK+6dnxZ2fwlm7Vlxr/A9oys+f/ZjF90+ofHbu3lxLwTvnF/Y/a968P7yyZ/TwYJx7PmR/nYJpWPMUB2dxSbxJNmovxD9U+05W0ZW6vkfKwZmTimMOHe+zZdMWDvm5cWmP8rBEU6S2s3bvHZN5bDkbdsO1ZW1bLn4IzMnOyscYsGZhnSYmLTAP23rYqxw1nlRnQChRQEiCaVoYppo/FvHa8nZNkzts2rPwZGz5GXizM3MxTTDgwYYrOKe0REyD0HHHyRwTwVtmRsXE/EWx7s2jaMuc3Kys2MU4sWCJp91MMTasTHp+fg35S4C4w3ri3Vw3xLsW8duw5U505GXGPDi+yJiJmPuiK0rGnVoF8ucabVx/8ib24lzMWP8Ag+fm/h7Hl4v+D2fBbLj9l57zL83xvxNtvBnG+6eJ9jnHOLYdojHm4MP/AAmVNszB3rhmfcQDs3w5leTKteT8W59t2feW79l3hsWZhzdk2rJw52TmYZrGLBiisT+yX7wYrEdVSagqYpnolz7oB67iHfe7OHty7XvrfO2Zex7BseX+JtGfmV+3Lw9Zpd8dur5s+MN6702bdmwcYbBn7XtWdhycjKw4M2Jx48U0jDFcNLvzfUxWfgnjGn+LcX88NGviXFiw/LXCkT/jrZv6YOy+tea+WOVznvP87OdAKhRAWgkyQC2lMX6MVqUmWOd/gpB81xvx/wAJcFRss8Ub82bdkbX934H4uHFP4n20+6n2xOlYfMx8+/Ek/wDLfd3/AHeb+44h+vf7f4PwbX+Xtf8ANltevj3gDib5B3ltW7uFtl2faNp2XJjPzcOdtEZURgnFOGJiZi94BvH/AHfPiSf+W27/APuc79x48fz78SYdeNth/wC5zv3GquD6bfl/DNP7Cbu/1lg/2PLH02/LeKKTuTd/+ssH+wG0kfUF8RR/y22H/uc79x7HcfzX8Wb42iNn2Ljjcv4szSMOdnTk1nt+JGFqRP0zfLUzX+w+7I87zwf7HpeK/hH5L4V2DHt29OGM3N2PLicWZnbHm4dow4IjWcUYf0ojvSgOw/IzsrPycGdk5mDMyscfdhx4MUThxR1iY1eTk64vi35U4t+Ot4ZeZuLb8edu/wC6udu3Pxzi2fNjnSP4mL/Kw071b6/HHGe6uOuENi4l3TmYv4PtWGmLKxU+/JzItjy8XeJ/baeYPqKweCIsSBSS6VknHhgDFNOTwbTteRs2Tjz9ozcGTlZcfdjx48UYcOGOszNocXfOvzZuD42yJ3fgwYd68RZuX92TsGDHSMqJ0x52KP1cPSNZ5Ui7S35I4/4u4/23HtPE2+s7O2f7q5ex5c/h7LlR0w5cTT3irPcG8e/vnP4r3NnY8jaOMt3Z+bhmk4NjjHtM185cTH5vr+DOJt0cXcN7HxBuTOzM3YNsw4sWTjzMucvFMRinDNcM3i8S6+ODfiH5G4nycvadycK7di2XFH3YNo2imz5WKOuGcyY+6PES3f8AgLhrfHCHxRuLh/fuVlZe8Njw5kZ2DKzPvwx92bixR+lGtpgHrdn+oD4pzd4ZuwZ3FGDY8/KzcWVi/hWzZuXh+7DNJ/SnD9usa1chbm31uvfWxYdu3RvHZN4bLi/VztmzsOZgn3hmYaHcefBnyvu7b94bynhjFt+zZm05ubGLd+fhz8X24sUzH6FsWk8olx5w5vnifg7fuLatzbw3juPeWTi+3NjBOLKxRP8AJzME2nxigHaHE1ZaNcfgP6i9m4h2jZ+HeOp2fd29cyYy9n2/BH2ZG04ptGHHGmXjmf8ARntNInY3DirrEx5BklmNbkwDKZiHHXEHzb8Y7i31te5t68W7Hsu37HmzlbRk4srNmcvHERMxMxhmOcPv8eGZ0dcPz9kz/dw4yt/xrj/o4QdgnBnGHDvGW6Z3rwzvbZ957HGZOVizMqsfbjjXDMTETE+Ye/w35Our4J+Rt4/GXF2HeOT+Jn7q2qmXvLY4n/CYOWPDH/rMOsTzisc3YHw3vndu/dy7Hvjc+2YNt2HbMuMzJzsE2xYZ/mmNJjWJiYB7QSZSoLNWGLFGHVnXq8OfNZgHxfFfy58e8K77zdyb/wCKNj2DeGThw48zIzMOZOLDGKK4ZthmLw95wXxjw7xnunHvXhremTvLY8GdiyMWblYcURGOIiZw/pRE6TDSL6wsrFi+fd8Uin/kmyf1UOe/oXy5w/D231/x3n/1eUDn6JmVoYP1SZiZB6DjfjPhngrY8jbOJ975G7MjaMz8LKx5uHFMYsdK0j7Ynk+Qn59+I41422D/ALnO/cel+rPgDif5A4W3PsHC2ybPtO0bLt852bGdtGHKiMH2TFazrdrbmfTT8vzpubdv+s8H+wG1OL6gviKJp/btsPrIzv3GE/UF8Rf/AH32L/uM79xqpH00/L0Tfce7p/7Ty/8AY82D6bPlubTuPd8f9pZf+wG0sfUF8RV/37bH/wCHz/3Hkw/P/wARz/y22H3kZ/7jVmPpp+Wv8S7tj/tLB/sTM+mn5bin/mndkf8AaeD/AGA2oxfUB8RYdeN9g/7jP/cYT9QXxDSZ/t22Gkf/AMnO/caP/Ifx/wAQcBbyyN28S/wHK23Oy5zYyMja8OdjwYK0iccRH6NeXWkvSbn3Xtm+N6bNujdeyZu2bdteZGVkZGXhrix4p5R/t5A7RNh2vJ2zZsnadnzIzMnOy8OZl4o/jYcURMT+yYfqvS71PDWx52w7j3ZsmfhiM3Z9kycrMpNYjFhwYYm/mHtpmAKFISsgKER3JgD2EQegILBIFD2XNQDU0JjuBCLoVAJsQWAgCeoCL6LAWE8L5AoFCQSFsQAeCgACc19QAJKgikVARSILACKBoiyaAQlVKAi6JMKCVU8nIE5qFOoEkFYPABfklZUChQIAkhD0CnIALBYAC4CLPgrJMgikAFSvgPQAsoBZF0ABLqAJRbAAQBJegTACaKVgCpAtgQhPKgVJCQICDwBBUlKAsAAlFmwAVkCoBUnyXAAARbABXsXAP2AeAKrZK1AOZMgBFCtTkagBSoBIT2AWEsF+QKnkhAWxqEgTSCpoWAkgqAB4L8wCpqASBQBJUA0RkkgBBqBF1SiTEg+d+QMX28F8QT/zXtX9TiabfRHujeu8PlfZd+7PsObi3Xu3Y87BtW1TFMvLx48ERgwV54p6RpGrdrf+7sreu5dv3ZnY8zLwbZs2Zs+PHg/WwxjwzhmYrziJa5/LvyTw78O8I5Pxl8ZYMjL3rs2VGXm52GmKNirF8eOf4+fi1vprPKAe9+pX5wyeB8nO4Z4X2nK2niXNw0zc2kYsG78MxrMc8yeWHlrPJrb8DcC8XfIfyFh3hureO2bF/Atpjatu33OKZx5GOZrbF/GzcV7dJvZh8PfFvEPypxTm4MvPzsrYMGb+JvTembXFOCcU1mImf183F05ay3ZpwT8P/HMfb+Hujce7cFIw65mfmT+ePMxT/wDNAfXZmds2zYMjDtO14IxZmKMnB+Njw4ZzccxpEWicU9Ias/U78E5exxtXG3BOwx/Bprm7y3ZkYa/h85zsrDH8Xniwx5jnDiT5Z+SOKvlDjPZdqysO1bNk5G0Rh3Nu7ZMUzjyscz+jiil8WdNr8tIs3g+Ltn4tyeBN1ZfHGbs2bxB+BH8KxZOG1eUYuU46frTFpmoNUfps+c8fBmbs/C3FG04s/hjMxUyM+ZnFi2CZ5x1ypreOWsc4naT5P4E4b+TuE8Ow7ynLxVw/i7u3hkUxYsnFMWx4MWmLDMUrGkw1++p74Dx7Nj2vjfgfYpxZM1zt5bryMFZwTrizsnDGsc8WCPMc4n5j6XPmzbeFd5bFwdvv+Ebx3Btmdhytj/DiczN2PMxTb7Iis4suZm+GNNY5wD5XaOHePvi35V2Pd+w5e0ZHEGDOiN3Y9mwTjw7bhmaR9kfx8GLTFhnTSerfPcu0b1zN1bv2jfWyZOx7wxbPgxbZk5OP78vLzPtriwxi5xE1u/bn7PsmbteRtWfsuRmZ+z/d+DnYsETiyqxTF9s8qxq1J+qL50xb2x7TwTwRt8xu2JnK3jvDJxX2mdJysuY/4PlixR+tpFtQ4t4J23I2j6k905+VjwY8vN4ww48GPDNYxRO2TMTE84mHYfhxVzaw0i+lP4c3txJxHu3jrbsWPYNx7q2vBtOy4vs/T23Ny8VYw4K6ZcTF8XPSOcxu9lYP4wM7yRVklIAr1eDHfOinWP53mo8OP/DR5j+cHWFxZ908Yb6mZ13jn/1kuwP6d8Mf3CeDOf8A5oyP5nX9xVNeK98/9IZ/9ZLsC+nqKfBnBkf80ZH9EH38YcNIstMPSP2ETFEmYAmMNNKeHyXyHwDwtx3uvFsHEu6cna8NJjKz4j7c/JnrgzIvE/l1fW0mViAdd3zt8Ob5+Mt9YMU48e37i2vHMbFt320muv4eZEWw46esXKmj6f6W/lraOBN+ZPDe/NqxY+GNuzYwx981jYc3FNIzMPTBM/rR7bn8ZcNbr4s4b2/h/fWThz9i2zKnBiidcE8seGeWKJpMT2db/Hm49q4T4t3rw1vH9LaN37RiyMeKlPxMOuHHH+dhmJ9g7OMrFMxGKZj7Z0mJrVm4X+krjXO4w+JNkyNt2ic3eG5sydgz8UzXFiw4YicrFPnBSP8ARcx4ZmQeWqGGOq0gGGOKazSrXz61uNce4eA8nhLYc+m37+xThzvtm+DZcExOOe33TTD3j7mwG05mVgycebnZuHLy8vDOLHixTSMMReZns63/AJt49xcffJm9d/xmYp2Kcz+D7vwzNsOz4JmMFuX3XxT3xSD9v0+cDzxx8o7q3Pn5X37Bk4v4Xt00tGTl0mYn/Oxfbh9y9x9UPB+TwT8r7Xl7Fs+DI3XvTBG3bFhy8MRgwRM0x4IiLRGHFE0jpMNhfoy4Mwbi+N8XEu2ZM4d4cQTGbg+6P0sGy4bZcf6VZx/6UdH7Pq94Bnir4qzd5bFk/ibz3DinbMmn62LKpTOwf+zEYv8ARB6b6KuPY3zwTtPBu15/3bbuSYxbNGKb4tlxz+jEf5mKuHxRsPhxT9kV1danwpxZtPAvyTufiLLzJjZsGbGTtkcsez5kxGOvi2L/AEXZJkY4zMOHHlzGLBiiMWGesTeAfoiZWJSIWgEwxnD0ZV6kTWQca/UnNPgnjKv+Lcf88NIPifBGL5a4Tt/x1s39Nu/9S3/oJ4z/AOjcf88NHPiPHMfLvCUf89bN/TB2U4NZ8yziWGVevlnQFqWSSAWkkQSAkzR487FXBMPJN3izo/RBqx9fNPwODY/y9r/my3oPoLp/dG4h7boy/wCuxPa/X9jxRh4NiP5W1/zZb030C1xfIvEdf8UZX9diBudhiJmbL9kdDDrK1gEmIiNIeLHMRWYwvNq8WbgmYmgNFvrA4I2DhD5HyN57qyMGz7Bv3Jx7T+DgimHLz8M0zKRyjFWMVOter7f6COIMyd4cT8NZmZOLI/DytvysE6YcVfw8cx5rH7Hzv10cRbNvTj3dHDuyZmHMx7n2THi2qcM1+zNzZiYw+YwxWfMPa/QFubPx8Q8Vb9xYKZOXs2TsWHFPPFixfiTH7MINwsOJlqww4KMosBjpEVlxh9RHyVl/GvA+PbtlnLzd9bdM5G7MjHePvpfMxR/JwRees0jm5OmcOLF9ktBPqp4tzOKvl/eeVl5v3bDuef7HbLhraJw3zcXmcdY8YIBxdXfnEvElcWLa97b43ntN5n9PN2jOxz/PM+ojpEN1/gb4B3Fwdsmz734o2bZ988RzEY/75EY8jY5/k5eGbYsUfy5v0o+J+iDgLZ5y9t+RN5bPGZmYczFse64xR+rSP77mx3vGCJ7YuravBgw0rEagYMOGI/28mUxFKUSVgEnBh6U8Pgfln4r4U+Q9248vfOyYcjeGDBTZd45GCIz8meVZ/j4euGbeJu+/0YY4qDrU+UeDd9fH3FWfw9vvKwzjiPvyM/BE/h7TlTaMeGvLlMcps2Z+j/5ez+JNjngTiTasWdvTYcn793bRmYq49pyMNInBinnjwWvzw051fbfVB8e5fHXxttWbkZGGd77ow4ts2HHEXmkVzMvxiwxp1iGj3B2+Nr4X4n3ZxJu/FiwbRu7aMO0YaazEfr4Z84fuj2Ds7y64orDyxFHr9yb02be26Nh3nseKMWz7ZkYM/LmP5OKKx/O9jM0BI5uur6gYj+7dxjpX+ymP+hgdiOPMppDri+oPMxT858ZRX/jbH/QwA9RvzhrfO6uFNycUZ2RGPdW+cGP+DbRl1nDhzMOKcOLLx9MVqx1jRyB9NHzNtHx7v6N0b5z8ePhfb8z+/RP6X8DzJt+Nhj+TNvuiOV9Yc8/Tvw9uni76Xd1cOb92ONr2DbMGfgx4ZtOGfxZpjwzyxRN4lqt8w/G2+fjfi7N3LvGufsuZE5mw7ZGGmHacquvbFFoxR1vpIOxzY9pytp2fL2jZ87BnZObhjHl5mDFGLDiwzFYmJjWJi9X6cOKrTr6R/l7HuPasjgLijbKbqz8X27q2rNxW2bMmf8DimdMGKZ/Rn+LM00m24uCcMT9tYmQZUq8edFMWF5Zs8OdNcUT0Boj9YOKMHz5viv8A9l2T+phzx9DeOMXw9t0x/jrP/q8pwB9YuZGL593zH/4XZP6mHPH0L/8Aof26n+O8/wDq8sGwWX+qfaxwTLKtQLcz9HpC0rC0BKR0hPtwzyZQkzS8gxxRGGOTi36g/ljYfjHhWc3BGRtW/dtjFg3bsmLnMa5uPpgw8+s2h9N8p8dbn+P+Edr4h33jicvLj7NnyMM/p7Tmz+rl4Y6z15RWXXhx7xbvXjfijbOI9/58Zm17RNsMT+hkZcfq5eCOWHD+c35g9dvHe29eIt/Z23bwzto3jvTeGf8AdmY5j7szOzMU0iIiPUREaRSG7n0yfDOz8B7qwb/39s2HN4o23KpireNhy5/4LD/lT/Gxeotr8r9Jvwlg3LlbNx/xVsn/AJzzsH37s2TMw/8A1XBMf4XFH/rMUaR/FjvNtmcGD7YtNQXDgpFKyyiCpEgE+SQCqXWEBbgAi2lF1A8CoByA1AuIswAvhACoULASkrQ5gTYgqASXEkFogoE1oIoJUJWnQA1SVAuXACoGoBQvABcEBSpEVLwAeoLyeQNSgUAqcykpILQsAFY5FAsAACKACX0UBFCoEWA8ATQg8rcEuBYAJL8wQUkDyTSSLgFzmWK3AkgACD0d5AErda1ACkluYEz1KdCvQsBcjonNbAUCxUEZQkQcwJsciwAQAAX5lgJuEU5F+QFCYPJbkCac1qSa6gVgqUAJEhQSyxIWAP5ihE0AKlZJAlKrRAWSnULwAngusgnlQBFigWA8FTwAUJAEqvJJmSO4LBfmUARTRO4KTNy3dKgvJFp1TwCmqeZWARaWI1UE00SMXVUnCD0PG2fn7PwpvvaNmzseVnZW7tox5ePDNJw4oysUxMd4m7Qj4J+LeIflTff3xnZ2zbpyscY95b0zInFP3TecOCZ/XzZ/LWejsI3xu/Z957p23du0YseDK2vZ8zIx4sE0xRhx4ZwzMT1pL5He28OCfh/43ysGbhy917m3blRlbNk5dJzM7HS2HDGuPHim8/tkGG2bVwT8P/HWGccZW6ty7uw/bl5eG+ZtGZPKOePMxT/t0aV/KnyFxJ8scYZGZm5OdOXOb+DurdOz1x/h/dNIiIj9fNnni/miHi+UeNeK/mDjTZ8eLZ87MjFmfg7p3Ts9cUZUTPKP42ZP8bHOnaG0308fCmw/G+7MO/8Af2HI2riXOypnNzpxR+HsGCl8GXM86frY+fgGf05fCmycB7Hlb+4gycraeJ8/L1imLBsGGdcGDri/lYvUWc3RhpFJvLibgL524K4t4/3hwfu7Px5edkYvt2Hac2YjK3hMfr/hd4nSJ/Wi8OVcOZE3kFx5czo+A4b+JOCeG+Pd5cbbr3Tl5W89titJmPwtmma/iYsrDpgnHzmO9KVl9/m5sYcE4vuiIiKzMzSIhp/9Tnzx/ZvM2ngzgjbZwbriZy94bxycVJ2qdJysueWX1xfxtItqHh+qf52zN45m08D8DbdMbuiuVvPeORivtE6Tk5eKP4n8rFH62kWrX576Z/g7aeOc3J4m4nyszZ+F8rFXJyr4ce8Jjlh6ZUc8XPSOr9f02/BeLjbNyOJ+KMjFkcM5WKuRkTH24t4THKOmVHOf42kWbKfMHyPw98V8J5ebnZGVj27Hl/hbs3XkTGCcz7YpFo/Uy8POfUXB73iHi7hbgmdw7o2vMy9kzd57Xk7u3ZsOz4I+7FOLFGCPtwRpgw1is6RHd9bhxximjrw4J37xV8hfUVwzv3e2PO3jvDHvjZs2cGVhn7NnyMGZGLFGDD/Fy8OGJn85vLsKyqxirQH6EIkArW0PBjj+/wAeY/neeIh4Mz/Dx5j+cHWDxZE4eLN8/wDSGf8A1kuwX6ev/QdwZ/0Rkf0XX7xTfivfNf8AGGf/AE5dgn0+0j4P4N/6IyP6IPvo0KJFouuoER1JNCtQeHOiZijSb659xxsXypu7e+Xgw4Y3puyPvp/Gx5OP7Zme9McfsbtZ00hpp9eu9srO494d3XlxXN2PdmZmZn/5uZh+3+hIP2/QJtubk8TcUbo+6fwc7Y8navt/ysGP7K/sxtwMmaxLTP6BsvNzeOuJttpP4eVuzLypnvizcM/zYZblZVoB5awmLFEQUq8eOPurFdAcHfWRxx/at8X5m5tiz5wbz4gxTsmD7Z/SwZERXOxf+zMYP9Np78O8FZvHnyNujhnBhxRs+fm/fteLD/E2fBfMntWP0Y74ofUfUjxlj47+Vd4bZs+b+JuvYJ/gO76TacvBM/djj/Px/dPj7XP/ANEHA2DdHCO18cbds9Nr3zinJ2OZi+HZsE3mP8/HEz4w4QbB7Fs+Rsuy5Oy7LlYcrIycEZeXgwxSMOGIpER6eXNy8OZhxYczBGPDiiYxYcUViYnWJfow4YiFpHQGnXAXwnOD6n957p2rYsWLhrcuZh3nlzjwzODNwY5+7Iyq86Yq1j/IbX7Hv3c208T7bw9s+35WZvTYsjL2jadmw/rZWXmVjBM+ftlOJt87Hw7uPeO/Nvn7dl2LZ8efnTEXnDhitP8A9vbRH48+V947o+cP7f8AeWfinL3ltWLDvPDW38GzJiKeMH6Mx0iJB2C15DwbPmRnZeHOy8zDjyszDGLBiibYomKxLyxUGUxFGM2VaA4z+peafA/GU9d3Yv54aPfEmD7vl3hKY/x1s39NvF9TGH7vgnjGI/xdi/nhpD8RT9vy3wnX/HWz/wBMHZLlc/LyVePK1nyzkFoczyTMAAkUBasM6f73LOjDOimVMA1S+vrJjFl8Gz/lbX/NluNPph4+3N8a8Q7/AN9742bbdoyce7svKw4NlwRixV/Fmecx1cnfXxjw4cng6v8AK2v+bLcPfAnx7j+Td7783Dk72wbtx4N34M78XFk/iRP99mKUrHQGwsfVrwDW25OI/wDw+X+88n+6v4DmK/2F4k/8Pg/efFYfo/26MVf7e8j/AFdP7zzYfpG23DFJ47yv9XT+8D6vF9WfAeD/AIk4kn/q+X+8+L4++q7btu2TN2TgvcWPd2ZmYZw/w7b8cY8eDvgy4tE/51XnxfSFtuOf9/eV/q7/AOJ6vf8A9JfFWx7PObuTiXde88yI/wADn5WLZ8U+MVZj8gcP8FcJ8VfJHFOZsm6Nmz947fn5n4u17XnYpnBl/dN8zNx8v550hvv8R8Bbs+POCtl4c3fjnOx4JnO2racUUnaM7F+tjmOUcojlEQ0I2yeOvinivHsuLM3pw3vbLiMU/h5n2xm4eUxMfo5mD/5s2u+mf51/ugxj4b4jjI2biTIy5zMGZgj7cvbcuNcWGP4uOOeHpeAc+RMRFKlYl48FMXNli/R0B+Tb8z8DJzs7/wBXl4sf7ImXVrvDbs3bNs2nb83FOLHtGdmZ+OZ5zjxTin+d2j7zwYs7YtpysMfpY8nHhj3hl1Z49mzMGDFk4sMxjwVwTHeLT/MDsg+CN15e5fhvhTd2GIim7MnOxU54s2PxMX545fd4Zs+V+Js7J2r4t4V2rKxRiwY9z7JeOsZOGJ/OJfV4YilgChVagxlKTLKYlJsDDNxRhw0xRExOvh1rfKm7cvh35M4k3Ll4aZWybyzcGXHL7JxVj8pdkufXHFtXXN8/7dk7f82cW5+RMYsud5Y8ETHP7YjDP5wDcX6TN6496/BHD2POxTjx7LGbsle2XjnDH5OWZxVhwv8ARjkYsn4F3Xix4ZiM7a9qzcPic2aOacMRQHix1o65fn7KxYvnPjL/AKWx/wBDA7IIiL2ddfz/AEw/OHGM/wDOuL+hgBtp9JOX9nwHw5HX8f8ArcT7H5U4C3N8g8JZ3D+9cr7cf+E2TasMROPZs6Itjw/zTGkxWHyX0oYon4E4amJ5Z39bics48yPtoDrS474X3vwXxNtfD2/dn/B2vZ51j9TNwT+rmYJ54Z5dNJvDZr6UPmqN9ZeTwFxTtkTvbKwfbuza82b7XgiP8Fin/wBZhjT+VEdYvyL8/wDxbsPyZwrORlxl7Pv3YsOLHu3a8UaTOuVjnngxflNJhoBvLYN77h37m7FtmTtO7d6bvz/tx4JmcOZkZuGaxSesTSYmNbTAO0z8SuHWvd48d3C/0v8Ay9HyBuP+wu/M3LwcT7BlxOd/FjbMqLfjYY68sUcpvpNua8cYfvwxGvMGgn1h4cX93/fOv/1XZP6mHP8A9CmGf7jm3V/x3n/1eU4Q+sDLj+75viaa7Lsn9VDnf6HcNPh7bv8ApnP/AKGWDnnBEU0ZUY5f6q1BSrGZmUmaAyxPT8Wb/wB2cNbg2zfe+9qwbJu/Y8uczOzcU6RHKI5zOkRzl7Da9qyNn2fMztpzMGVk5WCceZmY8X24cOGIrMzPKIhop9Svy7m/Iu/P7EbozceDhfd+bP4EafwzMi342L/J/kx75g+R+a/k7evybxZj3ltWHM2fduzziwbt2KcVsjL/AJWLrmYtZn05T+kr4Vw792vZ+P8AirZK7pyMf3br2TNw22rMif8ADYo54MM/qxzm+kPmvpq+HMfyFvz+y++sjFl8MbDmUz8U2/hmZH/A4Z/k/wAqfTezYdmydk2fK2bZsrLytnysEYMrLwYYw4cGGIpERHKIgGeXgnDGtYeTkTKAthKVWgASQAABBIUp1AihUp4KAVC9EgF1FTwC8kqFQLhUsBNitQAsFCQIJ7lC4CLcuBQOZfmAT1SZXkAXPBMAVNEiq2AFQA1LABSCwABAGilEmIAOZEgFzQomnMFqi25kQAR3LweQJVCncCZIK30JiQCArFAAjyABJSwGonlbAXJ8nK5UCiKugJHYmQpUA8FAEmi+CySC6k+0WYA1INC/YCx5KAAWAAul6gt+R5D2BMdEuoBCKWAOVw0BFsVjoVjoB+0rIR1AkiYADySFL2AKqnPUAkkqB7CyAviiQpMAUsQJ7Ak0IqtgCNBQSbFgAqnmCkrQEhdCCwEpWF9niQEWhpqBWAsSBFD9pFACUWaFAPIUKgFIkALxqWKkAWhIWpYElYKHMC5E3CwEyVPZEUB63fm34N27q27eOZlYs3BsmzZmfiwYZpOKMGGcUxHezr04/wCLOMPmPjjZ8/Fs+dtGdnY/wt17q2auLDkYZ0jD1xTrixz/ADN+vkHF9vBXEU/81bV/U4mkf0a7RX513JH/AOC2mP8A9PCDZv6ffh7dPxluSd771x7NtXEeblV2za8Ux+HsmClZy8uZ0wxzxc/DkGMzhnjrg/Pytm2nZd7bj3nlY8nMx5GbM4czDpiiMUXiXw/1K8KcXcY/HGfu3g7b/wCDZuHH+JtWxR+jO8MuI/wUY/4t700xaS1F+FflDiL4q4mzMOHKzs7dWZm/h7z3Vm1wTWJpOLDE/qZuH89JB+v5w+LN6/F/FGCcrHn5m6M7N+/de8cuftxRMXjBimP1c3D+cRWObYf6aPm/Bxhs+TwpxTn5eDiTKwU2faMVMOHeGGOfbNiNY56w5OycfB3yvwB+j+BvjcG8sumKJtiy8XSeeDMwz7iWkXzb8Z78+LOJ8ETm7Rm7szc38Tde9MuZwzMxNYwzij9XNw/nrANovq22L5A2/wCNc3L4MzY/gWDDixb5yNnrG15uRTTLmP4sfxoi8xo4L+mH4Mx8aYsnizizJx5PDeXi/wDJdlmJw4t4THOecZMaf5Wmjl/6ZvnLZ+M9nyOFeK9pysniXLw/bkbRjphwbwwxGvbNprh56xzcucd742vhngfee9tz7hx732rYMicWTsOz0w/dTtH8WNZiL0iaXB8x8z/J24finhTLzMzJyM7eWZlzl7q3XlUwff8AbFImYj9TKw2rPqLtI52njL5Y+QojF+Nvjf288ykRpgy8EdOWXlYY/Z3mX6ceVxj8vfIk4/097b83lj5fo5eTlx+WXlYI/wDmst1/hD4r3J8Y7mw7NseHL2ze21YYneG8MWH9LNn+Rh/k5cco56zcHzfx7w5wN8FbDuTdW27Tl7dxXxJteTsX42DDXNzsWPFETGCJ/UycFazPPneXN2H7Yn7IaEbJvveu/vqq3Zt2+NtzNr2jL4sy9my8WLTLysvavtwYMMcsMREW61mW+sf4YGcxRbrMwlY1BI1eHHMfjx5j+d59X58cf37DHeP5wdYPFWOMXFW+Kf4wz/6yXYP9PkT/AHD+Dax/xRkf0XXpxPhxYOKt8W/4wz/6zE7DPp9xV+D+DY/5oyP6IPvo0SaLExMAJDJjLw52fgysvHjx5mDBhwROLHixTSMMRzmeUAm2bRs2Rs2dtG1ZmHKycnBOPMx4ppGHDEVmZnw64fmbin+3n5I3xxJGKZ2baM78PZIxfxdnwfo5f7Yri/0nM/1Q/Omy7/yNo4I4N2mM3d2Kfs3nvDLn9HaKTfJy554K/rYuekc3D3xL8f7y+SeMtn3DsUY8GzRMZm37TEfo7PkVvP8AnTpEc5kGz30Q8L/2E+M9o4g2jLnDnb+2r8XLiY/4HLrgwT7n75/Y2CwxEPX7k3ZsW6t1bLurYMiMjZNjycGRkZcaYcGGKRH7IfvjDMAYp+27iP6p+PcPA3xdtU7Hn/h723xM7DsdJ/Sw/dH98zI/zcFb9ZwuWcUfdP2TN3X/APVnxpj4z+Vdq2fZM78TdW5Pu2HZKT+jixxP9+zPeOPtr0wQD4z484e2jjTjPdXC+wVw5m3Z+HLxY4v+FlxfHj/0cMTP7HZRuTd+w7q3Rse6d3ZEZGybFk4MjIy4i2HBhiIiP2Q1e+hPgWcjYd4/IO8Mj9PaJxbDu6ZjTLwz/fccecURhr/kT1bWYIpcGcVnoTXmtbJqD8W8tk2bbdjz9k2vKw5+z5+Xiy83LxRWMeDFFJifMS62PlvhLaOBPkTe/DGdGLFk7Pm/dsuPFH+F2fHfLxfsmk+HZjjy6tcfrc4Dwbz4Y2LjbYcn7tq3PP4O2fbF8WzY5tM/5uKf/eB7r6N+Oczir41w7i27aJx7z3BijZsU4prizNnm+Vi70j9GZ6w53wR3q67vp+44/tB+Tt3bzzM2cO79qxRse8IracrHNIxf6OKk+KuwzIx4Zw/dhxRjw4orExNpjqDzFYjWaMazMscdOoOOfqWxfb8E8ZT/AM3Yv54aNfEuKcXy9wl/01s/9Nu/9Tn/AKBeMf8Ao7F/PDSD4d/9LnCczH/HWzf0wdlOXOvl5cMsMrn5eSlAJS9CvdaxIJ5XkqaArx58/oUXFink8ebWcEyDU/6/f1ODv87a/wCbLek+gbDH90fiGf8AmjL/AK3E+j+vjKjFlcGz/lbX/NlvQfQblzg+R+IZj/FGX/XYgbmYdZWYjoxiaTNV+6J5gtITHhmcNFm8MYmY1BxL9T/A2x8ZfFm88U7Ngnem6snFtuwZ1P0sOLBFcWCv8nFhrEw0P4L33tfDnFm5+It35mLLzti2vKz8Exzw/dFYntOGZiXYZ88cT7Fwn8W7+3ltmbgjMztlx7LsuXM3zc7MicOHDH7a+IdeG6t2Zm37y2DdmzROPN2jPydnwREVrM4ogHaLsePLztny8/Kr9mZhjHh8TFY/KX6Ywxq/NsORGy7FkbNE/dGTl4cuJ6/bER/+z9MYqwDH7I/EmZ0dcfznuD+1L5Y4i3Niy5y8qNrxbRs9rTlZs/fhp+2Y/wBF2N48M4otNGt/1q/GubvvcWzcdbpyMWdt26MqcreGXlxXFmbLWv305zlzWf8ANxYugPc/Rhxhl7++K/7XceZE7buHPnJnDM3nIxzOPLxeL48P+i55wzipFnWt8Rcfbx+OONNm4h3ZH42X9v4W17N91MO05MzEzhr1tE4Z5TEcquwjgHjDcXGvDmz7/wCHttja9kz4/SjTHk4+eDHh/i4o6A+j8lWMRMr9oMkmImGNaS/NvLb9l2HYs7bdr2rJ2bZtnwTjzs3NxxhwYMMazMzpAPRfJPFWw8G8E714k27Fhw4NiyJx5eGf+EzZtgwR1mcVPzdbObmbTvHeWZnY4nO27bM+cVIvOPNzMVo/9qYhzH9TPy5/dG3zl7p3LmY8PDe78ycWVimKTtmbp+LMfyYvGGO8zzfu+kL4wzOJ+M8PF28tnmdzblzPuyvvj9HaNqj9WI6xg1nvSOQNtPjLh3DwnwFuHh3BER/Adiy8rHSNcdK4p/bMvqZpDDLiaVxas9QY/dEauuP6g82cXzjxjGH/ABtj/oYHY3iwRidc3z9kxHzlxjM/42x/0cANuvpIif7gfDVeeHO/rcTl/DlxS7iP6TcUYvgThqnKM6P/ANXE5erYEnBH20i3dwh9Tnw5k8d7rxcQbg2fDh4n2HKpSKR/DsqP+DxT/Lj+LPrSXN9JknDNP0ZpIOsLce8978N8QbNvXdefn7v3nsGd92Xjp9uPLxxNJw4on3E4Z7w3z+Dfk7YPkrhnBtWVhytn31slMG8tjif1MXLHh64MXKeV4nRxh9W3xDg27Ztp+QOF9jmduycP3732XJw3z8ER/h8MRrjwx+tTWL6xfWHgXjTfHBHFWx8Sbh2iMG07PNMWCZ/ve0Zc/rZeOOeGfymkxoDkj6xMzDh+et7Vm/8ABNk/qoc6/Q7mxi+Htt/6az4/9zLat/PXF2wcffJGdxRuvBm5eRtew7LGPKzIpiyszDl0x4J60nnzbQ/QxlzHw9t0z/jrP/q8sHPmDFajKI5pgw2qv3UBaRLx5tIml6yuLMwxabNbvqw+Zp3Hs2fwHwtt3/nXPwfbvLa8vFfZMuY/weGeWZijX+THeQfEfVv80TvjaNo4A4V2v7t2ZWL7N67XlYrbTjif8DgmP4kT+tPObaQ4t+CvjnefyZxhg3Zk/ibPuvZvtzN5bbhi2Tl8sOH/AC8WkRy1em+P+DN68ccVbHw5uPJjFtG0TXFmTFcGz5UfrZmP/Jj85pHN2E/GPA25eAOE9l4e3HkxGTlx9+dn4v8ACbRmz+tmY55zP5RYHueGNybt4e3Jsm5dzbLl7Ju7ZMuMvJycEWwxH88zrM85e1pZhH6K/cBErZIiq0gFQmCkAWIoE+APRbmALqhHeVBLQTQpBQBSiSBYuEVAueVS1eYEUJD2BWSvQKAnNYoUolQU1NSYsAlZjksEglVqci2gFSpy1AIiYNSpN+gHgvHQ0AK9TVJmV5XA8wUghQQ8lSwGugKCVgJAJIqABUSQLQsaFIAA0AKgAVC8lwLp5U8ARBYAJPATIFZJLEAJzFkCDXmFwOxaAiYoBBUsWAkvzPJMAczyigQTAXACO4BEQqVUEpJRUrAESt+iAEVAuB4KkEgTMiKCVqKAaEyTJWoFjwABQgmQBapIHgEkFqVTyoJSVLrYE0AkFhKSJYFChYEWZPJ5ApUtBEkyBroSQVAg8BSAJqkKWAAryAOawkgVKAB4NUUCYKQqWACZhIBSJJQFS6xKSAtC0lAEmZWiRYHzXyFEzwPxFHP+xW1f1ONpJ9Gez4o+dNxz02PaZn/u8LePjbZ9o2vhPfmzbLk4s7Ozt3bRl5WXgiuLHinKxRER3mZiGgOx/Fny9sU5ebsnA/EuzZ+HBERmZGDFgxxa/wClhmJB2K4MMR+tEuBvqX+DMjjbJzuKOF8nK2XibLw1zcqP0cveERH6uLlGZ0xc9J6tbP7QPnfFN9w8cf8Aic/99998N4fnf4/4lw7ftHCPFe99159MG3bFtOLHmzjwfysuceKftxxy5TpIONviT5H4o+K+LMzM2fKz8WzTm/hb03Tn1wRmUmk2n9TNjli9TWG8ewbVwb8t/Hv4kYdn3tuLeOD7c3JzI/TysfPDijXBmYZ56xrDjv6hfhnZ/kDdGHjDhrYsey8SxkRjzNnzsr8LFtuClYwY4n9XNjSJnxPKXDnw9uz5q+N+JMO892cB8QbRsGdMRt2wY8mcODaMHX/JxxyxepsD5H5w+It+/F3EGHOyczaNo3HnZ33bu3lgmYxYJia4cGOY/VzI5TzpWOjYX6ZPnWOKMnZ+EOMtrwZW/sGGMOybbjphw7fEcsXTNiP/AGtYu5r2zYd2cYcJTs2+dz5uPd+8ciPxth27KnBmYK/xcWHXDiiecaTFYlpl8p/AfG3C/FWPJ4U3RvHiDdGbP4uybRs2GubkxE/qZlNMeHlijXW01gG5nDXB3C/Dm9d5703LuLZdg2zeeZ+Jtebl4KTmT/8AtFb0ikVu9zmR/fY+2HXvm8BfO+Z/xBxv72rP/fePD8efO0TfcHG3/is/98GXC8ZkfU9sETX/AH5//wC5LsLwTM46zq0S+KfjP5J2D5Q4X3nvXgvfeTs+z742bP2jaM3JmYwYYzcM4seKfFZmW+GG+bWlgeTyUgpcpcDTR4MU/wB/jzD9EPHOCuZ99QdYfE8Ri4p3xX/GGf8A1kt/Pg3Ow7L8CcKbTiwzijJ3JlY5wxrP24K0/Jw3vb6Tto27e22bdHHWHL/hO0Zmd9n9jK/b92KZpX7+VWwHBfC2Lh7423bwji27+E4ti3dGx/wn8P7fvmMM4fu+2ttdKg4M/wB15wtWacH8QazH+GyOU0/lPLg+rnhjFH+9Lf8AH/52R+8+dj6QNsv/APTzKvMz/wDwyeczP8pJ+kHbYn/f5l/6sn94Hst+fVtlTk4sO4+C87FjpbFt+2YcMRPjLrVwb8ofL/HvHmVj2bfO9o2XdkzfYNiicnIn/Pmv3Y/c07OcN1/SLkxjrvHjnaMeD+Ts+74wzPvFick8F/Tr8a8O52Dac3dOZvna8FJjN3nmfi4YnrGXFMP7YkGn/wASfE/F/wAi7dgjdOx4tj3VGKmdvPaME4cnBHOMEfx8XaG9vxXwBuH484Zy9ybjyZvMY9p2rM/wu05lL48c/wA0aRD6vZ9kyNnyMGRkZWDLy8vD9uDBgwxhw4Y6REWiPDyxhoDKIsmLFS5E0WaYopOgONPqK48wcA/F+8d7bPmxh3ptX/ke74rf8bHEx93+jh+7F6aDcMbm27ifiLd24N24ZzNt3htGDZ8qcV74pvintEVxTPaW7f1B/C+8/lTeu7c2OLMO6937uycUZWy/wKc2ubjn9LMnF90cowxEcr9Xq/gr6d8r4542nifbuIcO+c7K2fHlbJlxsn4UZWLHbFjrWaz9tcMf50g5j4M3Du/hjhfdvDW7Mv7Nk3ds+DIy7XxUi+Ke8zWZ7y9zGGiYYitaMwSkLoSl5BMWKYiz12+t37JvTde17t2/JjN2Xa8nFk52Cf42DFFJj9kvY0oxxxXWAdY3yhwltfA/HO9eFdt+7HGyZsxk5kxT8bIxXwYveGfybpfSXx3i4z+Ltn2Tbdo/E3tuSY2Laqz+ljwRH96zJ84fzhl8+/Bex/KO89271yd7/wBh9v2TLxZGbmxs34v42XM1wxMVikxNb96Px/BfwTvH4w4szd75HGX8P2PatnnI2rZJ2D8OMy9cGL7vumk4Zry5g5vw/dLKMNdVy8M4IpM1Zg4z+pbDE/BHGUT/AIuxf0oaIcI71yuHuMt0b8zMjHn5e7tvytpxZWCYjFjjBirSJm1XYp8ncLYuMuAd9cMYdt/gWLeezTkRn/h/f+HWYmv21irXHN+kPbcWKZjj3Bef8V//ABg9vP1e8OYJmf7Td+X/APxOR+8uH6vuHcU/7zN+R/1nI/eeh/3H22TN+Pcv/Vk/vs4+j/aY048y/wDVk/vg+gj6uOHJ/wCR2/P/ABOR+8xx/V3w3h/5G79n/rOR+89Bi+kLb/4vHmV/qyf3kj6Qd4T+tx5k0/6Nn94HvZ+sHhqP+Ru/v/EZH7z7n4V+e9z/ACdxVn8P7BuDee7s3K2PHtc5u05uViwzGHFgwzhphmZr+nH7HFM/R7tUxfjvLr/0ZP7z774D+ANq+MeNto4izOKMG88GbsGZsn4OHY5ypicWPBi+6tZ/kadwc84MUY62Y58x9kwmDBMc2ePBGLDSoNTvr8zMWHL4Np/K2v8Amy3E305/KWw/GHE2897bx3Rte8sG2bHg2fDg2fMwYJwTGOcVZ+6YiYu2y+oL4exfKeXuXDg37G6v7GznTNdl/F/E/E+3vFKfb+biPF9H20TNuPcP+q//AIwe/j6uOGsWnB+/L8v4RkfvPHmfVxw9h04L33P/AFrI/eekwfSDtmCf9/uD/Vn/AMbyf7kXa5147y5/7Mn94HtcP1fcPxNJ4L31H/Wsj954N5/VzsGPZcUbr4K23Hnz+r/C9ty8OXHn7Kz+T12L6QNoxf8ALvBH/Zk/vvJsf0fzGdH8J49x/hc/wt2xGL88dAcGfKfyFxR8ib2wbx4h2zB+FkVjZtkyY+zI2eJ1+2OczzxTeezmP6RPiDeWfvvZvkLiXY8ez7Fsv6e6dnzcNMWdmT/w0xOmHD/F6zdy/wDHX08fH/CW0Ze252y52/Nvy5rhz94zGPBgnrhy4/Rj3VzBgy8OGLAxyY+3q8lIKQAaaPFmZX4mGcOLDhxRiiYmJisTDykyDUD6hfp0z9g2nauKeANjxbRsWOZzdr3TlRXHkTrOLJj+Ng/yNY5W04K4G424k4C31j3hw1vPO3ftFft2jJmK5ebT+LmZc6/lMdXZjiw/c43+SvhLgHj3NxbXvbdEbPvHFrt+xYvwc6Z/yqRTH/pRM9wcOcG/Vvg/Dw5PFXCuZ98RSdo3ZmxMYp6zl46THqZbGfHvFu7+NuEdg4l3Xl7TlbJt2HFiy8G0YPtzI+3FOGaxHeJa278+kbasnN+7cHGOVmYK2wbfskxMf6WCtf2Q5/8AhfhLbeCfjbc/DW8dp2faNq2HDmRmZmz/AHfZi+7MxYop90ROkg4j40+qfcm7s/a9i3FwzvHbtryM3Hkzj2rNw5OT92GZiZtXFMVjo1v+VPlbjf5CzJwb+3lhyt24cX3YN3bLH4ez4Z5TijXHPfFbs5s/3Km/94b92za95cX7u2bI2jaszNps2y5mZjjDixTNP0vtit3JvAP03fH3DWfl7Zt+zZ/EG24JicOZvCYnKwz1jKj9H/2qg1n+CPhjiL5E27K27a8vP3Xw3gxVztux4aYs+muDJidZn+VpDerhjcm6+Htx7JuTc+x5ex7BseXGXk5WXpEdZ6zOszOsvZZGRk5OVgysrLw4MGDDGHDhw4YiMMRpERGkdnkpEaAE1glNQY4sdOTrl+f8eLF84cYx/wA7Y/6OB2N/bE6tcPkH6YsfFPHW+uJsPGf8Djee1ztP4H9jvv8Aw6xhin3ffFdNaA+u+kfDij4E4d+7n+P/AFsuYcOGYh8h8ScFzwHwBuzhbFvGd4TsX3/+Ufg/h/f92KcX6tZpq+xibAJM9FmEmKA8WPBOKvfVpd9V/wAKxwttubxtwvslNw7RmV2/Z8qLbDm4p/XiOWVimf8ARntMN14mH59t2TZ9t2TO2PasjKz9mz8E5edlZmCMWHMwzFJwzE6xMA6s8uIwRduz9DmL7vh/b7ab6zv6vKfM8RfSVse0b62vP3Lxbi3fu/MzJxbPsuZsP4s5OGf4v3/dFYia050o5g+CPjvH8Z8G7Rw/j3tG9Jzttx7V+NGR+FT7sODD9tKz/J17g+/wV+1lNEw2ihqDiT6n/kPePx1wFh2nc+TGPem8s/8Agmy52L9XZpnDMzmU5zEaR110aBbTmbTnZ+ZtG0Z2bn52bjnHmZmZi+7HjxTNZxTM6zM83Yb9QPxfmfKO4927ty99Rur+BbXO0TjnZvxvv/R+2lKxRwzi+kPaZ048wf6r/wDjB8N8E/NnCXxhw7mbLg4K3jt299rmu3bfG1ZUfiU/VwYYma4cERy61lyfkfV5w7OGk8G76w+NqyP3nosf0e7Ximv9vuV/quf3yPo922NOPcr/AFZP7wPosX1b8OzFuDd+T/1nI/eYR9XPD0Tfgzfkf9ayP3nosP0h7fE348yv9Wz+8s/SHtsx/v7yv9Wz+8D33+684apfg/fsf9YyP3nizfrA4bwYZn+0zf00j/7TkfvPR/7j7bJ148yv9Wz+8Yvo+2ucMxHHeVeOe7J/eBtRuTeWHee6ti3hl5ePLw7Xs+Xn4cGKkzhjHhjFETTnFXsYmeb124N2zuzc2793/jfizsmy5WROP7afd9mCMNacq0exkCUoXhagUkpPMiUkFKABcqQgLfqVO5AJqtCwB6CpWQCxFSoAlVsBN0XwAeSC/YBFCoJVQuAEE3AKQRoQCWWCQCQIoAFoJANQigHk0JIASZW6AKWIuBroGhcAk8lAIJuH7ASvRfKLrAFCgAXLlSQDykKBUKgEEgCLyKlIBIUpBpYCacwKAXA9AQRJBqAQVkr1AjVUAKQfsIKAVNSQCbEHsoAIoEnI8lKgQSAEJK+S/UCNCwAFuRUmgF6FZKyAEgBSRYSgFIKFwCCweACxfqUgAKEgCALMhBQEWxKXqCzIkqATCKBBIAFywBEwalgEWncJAPBFQACIBKkdVoAhPdaEgii1BKQSEgFTVKdwWCYKdwEnDEpGXg/kYf2Mqkgn2YP5GH9h9mD+Rh/YKBalOXRIwYP5GD9i05gJOGKUpRjOXhmazET5ZmoMfsy4/iYf2L9mD+Rh/YtCgMZy8Fa/bEeIWMNNFrQqBoTIAUSigEFSnVAZJMEVLgeiOwacgVKpdYqCUNF5kgRKsS4MqsVgoCKAEFCSsAL7SaFgLQTKLToCVlblFBORcqeQPJTsICqgCSLdAWCJNJUEkpATEgVoVPJ2AlFpJoBBUIsCXWnUAU5IXBWMySsAkKcyvQCqc7rfqAEE3I8Asl0maFQVKdEWKgVklJjuoFDQiCvYCpHcmKpoC2Twd111AiSpQoAXLoDKyaaFEBaleiUWgFSh6ATRYACQAKASCQsdw8gWVLEATKUWZAICDyBUmhSSI7gR2NCStIAE11WNAJg9JFVp3AoABEFC5QEWaACQsiApoWAJukLKAoQATIWgmnQAui6ABOoAJCyBNTQ8kAWJg9lQWEmnMsACL5AKyTICRdYLgBc8EAT2Kh4AiQmUoC+SkwjKAShYsAeiEUDmFIKAUPQewK9CA8gQVSigSB6A8gAFeQWAr2CvYA5EFjyB+YAEVPRBUC/UPBUCSgXBJla2KVuegKBcAJ0J8EAQABXkTEBNQIJ7BAFexJroTqAewr2AC5QAiQsAVEBShyP2gJzUAkryInsAQRqACehfYGoFgCCTyAFkBaprzUALBUAqAHssigi06iewWkFyPJIAAASQBUoap7BdAokAsoc1A9mpoAIKBWvIsGgFOZXoFgD2gB4XyVJA9kmoBEEkFwAuSBorFfYJzUnyAUAApJFiACe4ScgRUqXBZolOovO4IeyVsAFO6X6gpoIC1PaAL5BImAZE+UlAUI8E+AS9SSJW3MAhFkCSJI8gEkotgRQAk1L9U8gSogKCegUT0voASvkBUVJoClUAUCANDuEAXI0Sa9VBFLUIAgtITIFKCVKgoR5SZBSSAAoAFgAAJA0JSP2L5uATBQA9CLAEE15ACeVSVArZL1WLEgVNSgBU1IqATcisHorIAWLABXqSBqUoQAAAnpUUBFoAgoCUoswEAE+EUBFv1ASkKeigFihBTuAHmQCqRZadgA9ABEJKkgQa6kRAAABQmA9gBVQQseSYAsEAAezwAVCewBPY9EagXKrKUA1NCxMAigBBNCtgA8keCgAeC4HoE9AoQAIpQChYPQAi+AICO4AT5K9YNQDyRBToAWCncAqHoE9KAB4kSoKVOYCc1uGvMBFLARU0ADzBAATQ8k+UBfBfomiwCLJoAeysQkE+AWtT0npfABUoegEUgEF9HoEofkR5X0AQigTISAB6PyAv1AmQPRUiQBPankEiTmtOyTYFPSKCe1t1CALBzAQFoABcDxKRVQADkBXsWIKAE9gACCQRfYgCgCSsBMwAWORYD0ioBIpYEWEpJUF5hql+YLKehQJPZ6AF5JBIFuQlFAkIPAJPYW3QBLqRqTcD3UvJ6Kgih4AnwkRJeFr3AArQC/k5ACLBbqnsFnyfmT4IoCfkL7AT2qVWZAmnRIlUBZqkqewI8n5oAtUFr7ATyoAh6ovsD2BcEqoAR5AAp3IAD0UJp1KgVNdUuoAABVFoBJyNCvSACvYgkCpEkeCQKx1PCKBfqB7AAAtJcS/IFPzIPYBZNF1BOawl+q8gJRT0CLyIAAIuBHg56hboBzLJqoBoWKgVunM9KAJRYACxUCp7K9iQLCQyBBUoAXPRAC2SS8Aeikl+pcAPNgCoFACUnytgVIPRoB7K9g8AEpcuC811TwUkAPYBBVUAqqFO4BQk9AHsPQGkGqeV9AF+p7SdQU1K9k71BaBE1AJnsV7F6kgSBFQOR5k9noDwU7kV6E16AAQBJBYnyBJZNFgAPBcCakeEWAAmUqC2K8kjwoCLMz0TkB6WvQKASntfZUEWE1I8gpfoAHkCAAkgChQk/ID0ntfaAR4UNAKJdYAPQV7GtwLhFSvoCQLAlbqAEExUqXAKVI8lQLwgs0BLLQuASnsnUvAKFSbgCQtJAuei5WAC4VAPKRC3A0NSkgFO56IoV7AnpfJU9gCVladwT0UXQuCLTsQaAej8iZSoErHgikkgHogA00NQASJW/I9AVnoi6n5gQSegDyFewBJY9FAEiFIAClQA/M1QFRS1QPSeluAXCsncA8mpoBMwi0g8AlVKdZT2C0PSLoBCc1jqeAEqUWwEE+D8gAK9gEp3WCbaF/ABITHcD2ixHc9AkVXQkqBUNT0B6AmQNQKAQEeCACe0EkAXSF/MgCAPQEkeE5ESCpHlfR6A9BNTkBRD2tOoFjwHgAErQFt4BPACosAItepFKggspQF9AASH5EeQAKdwKh6JqAfkRQAEmygTUNSwAULgBYAoUCQC/ROayByNEuvkCTwABYsVjsAeSQCaFCO5IBMyLIJ3LFgCpU9FegGoAAAHpUqXAmE9L5OQElbBAGgUAD2V9HoCpJYBIvzWYnqRQkCKAewA8gB+ZySO4Fe1C626FQRfYagV7mvYpABMCoAT2PZPgD2IoFiaAAntaz0ARbUCQPQVLgXIAAoVgmQRboR2BZ8BbnJYC0GoAQUDwCXhYmZTyoCeVuAaFexEngE9HdSQSF07mnMBFgofmARNApIBchQSLKhcCSIQjyC0ucipqATQJBI8LboegCxBPlPQKT4qABEQAE6lUvVbAVidSxHhfYIacyfB6A9L+SAARVAUqejUE15FmQCFA9gEySU7Akr+aAKnpaxRKgvIhJAUmCxAKhTuQBrzKxBVJkGWqSntQRdCFBKkkkeAKyTPYkA/IJI8gQFUsC0CC4FikCAs9iwUAPySndQCYLgBJQ0Ajwc9DUAmCdC8gJdUqtZAr6LdUUAkoAHoIAoQEgB6QBYEpUC9VoaIC0JORAEBXolZBfSTZY0PQGoT2I8AGifktPYHgLFwAlAWlO5aSJPVAIJKEgnOiiAtCexB6BLqaFQT0vkuAc9A9oCwTIW5gT4C/Ut0AJkkAgkSnYFCh7BUqVAVLlFBj2ooAVCexHcCSJ7HhbAmvY8BIF+ZoTBUCO4ewElYJAOZPkATTUuv7UuBKxQAD0KCBoVAINQDUI1AALcwLF0XUD0QaHoAjuVKgH7UUDyIQC/kHsgAqv8AMk+QT2qLyANSNACgVLAUAqBcAA9AB6RQACwFJFT8wFQ9gEQT4LgHoUE8FQoBAaJIKgsgl1AA5lIAJ8HoJAsU6GgAgoBQIAKSICnmCACIDwQCLQ9GvMCvZFpIB4KACUlazAgLBoAHtKqegChBUChc9nsCJAAueyJLAnNRAUPZTuAQUJAmoJbqDKEnsVPYF+YUNAJRfK2BAAPIHgCJJryhFqB5KdA9gJdagEhQAoeisdTUCsEpda9ARUrVQASQXUpIQB6KH5FQPdSQr2ALieQUD2BJ6CoAVAPRUPYB5SVigCKAiwAItQoB7PZKVBfaKUBPapRZAEUAkAI8lSwAQEASBQAkKgQigEFgr2A9J6X2nsFule5M+y0AX5QQQtKAQe1QDUgrQAmAAKggKSixAETJc8AHmCwegPQHsAjwmq+wD8kUANSPAHo9BUCIPJzAIJPQB7PyAFT0qSB+Z6PJcCokgKH5kV6AFjyAewAIkvPMIuAUkXQEAAkPYBUKHoCSEqvsClSQAAkDzBS1goBFQACwTIBzInsSBIalegEhXrBSACQ0AKACLyJARZAA8KkgRJIAE9y5SQIuUD2AWACgAFuqT5WU0BTnoABU1JAAAA9gTUrJQkASy1ACSAAv0QF8B7JsARCV7KBIiwCc1QgCoKBYoi1AABFg9GoHgCQCEiqgAAVJTmoHsgmoAc0nuRAEqEagQqalwVjK3gBI/avo1JqBzKIsAUS/RZp1JAr2gIqAVgr2IKgIpcD0RATIBSSCgFTUKACVKgtQAKwIAoAJVUWKAaFpJQFjyTJ5SgBC0QFEWAPCXVbgkVgsFgJ/aQk0UC3MggAnyU7lCoFClOYATJVK1AUqlVjuAegBFiApIEkXAC5Uk0AT2qVBalShQALABUAPAEAFCSoEUjmCQCyAAR3C4HoqAJXuseAAAoAmigCUUkCxSpAAVKwAXCpIE0CoAByAoJ6XyAezsU7gR2J0ACC5NeZAEpEKAUAgAqAEXNAA8heiVkFAoBckgoAQEeQJPZc1Aih4NCwAeACkoyQAC/QDQCoEVKiSCosWAD0eyoBcAAkpAEElQFQPYBc1kkCbAWAmpyuVAPBBZYBLkhIE6EFO4Bcp2LAFAkAoFJJgChYALBcpAFgLAUJCJAL8ykAGpockBdU5LACQoTQDyWACxzKgAVJAQsoEAWBF1SyxSQKEkweQIC5YAEBSAmQJRYuaAW5op4BKLdLryA9FSQANEm4KUPRYAKAElLXEBfBoFACpABeSSvQnuB5EsoEkJSTncF5khIBQr2SAVF0ANSgmgLAlZlZAKEQWALhABqcgCyWWxbkBcAAORbuAcihMAWJoigkU6qR4JBJWAAAgCgkgClU8gvkAElSxQCAqUAsBYCx6JQF9EUOYBQEBanoOQEpdQAsAJKp4KgeVjsJAL5AoBYscytwAmhQCiQsgB5KFAKdEmqgEdyxJAAXAKQsIgLOoQcwLlSh6AqGgAi2AAOYBASAawFAAhQQpQKdQD2XPIEkHgA5khqCKQAQFYAApIBPgkoUArYgsXgD2RBqUAkCwCaKlAUsQUAIsVAJC/NYBAnUAqRqEQBIeSwIvIAIJCgBY8lgSlFtPMQFpISABUgDyBoAEVACxWAA0L1NQKhSCYAKEQAB6AI7GgeQIJqVAKl4LABPc8gESSXJ8AVFjRLAXIpKKCc15BYEqpFiZAJSOx5BeQWLAcgAIqVJ7gFSQgCvUqVKgi25gAikdgRaVJK1Ak5ABFQiCQKySWKAU6FwgC3ctBJqABUCElZuVA8LKSXADyATUgKgi1KkgUkCQE1WyVBSoQAAB5LAAFaABUsAW5iFAWgICyWKUACxSACxYkgD2JNF8geQAEWqaAtyEqAoIC1JokLAJZSwBUSSIBbFwAA5AFwmtAKl+RBYC5BYsBJqk9lBLwogKTHYAEi6gF0W5WgIskTJcC0pSSlQBYKEAWNSsAAAE9goARJN0lQIAACxIAAKlygAGhbuCLFQigCeF8IC1kuigE0CtwRRAW0FepYArYSigiwHcFuk0K1KgVCQAOSewWhUKAJVQEXwWLAVKhNACgSAiwAFCO5UBF8gJZSpYCkECcwUueEBTwVALkAARqaFpAmgc1kEuWLp5BaQB4AOZBYAqLUE1PBNSO4FagagBoWARbJzAXwTTmQAX5ABHcoU5lwSV0ACsggLNStA0A1DWEAU0LAk6qAIoABbuAaqk3AC0muoBUqaagBUSbAvo9BIEhEQcwEupUCO5MHMn2AFTuBBJ5K0AIDyCLXsVWAQr1JkAkjoWNQLJYovoApU8GgAa9SAKyEgAiginMAA9gel8JXoASRBBQCdSslyPICStaleQIpBpoCWPC8kjUFLk3IpAB4JqV6gUD0X7ACLMgVg9EaJMgpBEAHgKEATqJaq6ABRAW4JSwLFOSCz3AjuixROYLU8k0I8gE3D2BSSk9T2AX7EJK8gNQQFmEFvzBLSsQIBZUpU8AupQ8pMgpfsaoAolwXRKxPItVaQCSLoAFIPYAFSQK0StTUvALCoATPYsT5PYEkE+QAI9kgcilSCZAomhNygAvIgEUkmtALETJyKUAVNZ0AJCe5UCAmhAByLFJAAsB4K9S8kgVNSI7FwIgqEgalIIJBFPBoAFZ7AJSFgIoBIWqSCKeE0BfBVK1XwATdFgCQpzLQAjK/JJqBOgn7FqAEnIEUmyWmQBSZAKJCwBYsABYstQQkqUAoaCU6gKWIgDULdEAlQiQT2tO4WA0NQ1AhUvTUgDwVDmBF9Ck9YLLAJyIkpcAA8AinkkDkRcKAT4A5ACeDQFuJdQAAJKk+0BRIWAJIOZPkACwKlCAD9hSAmoGgE+ALFSIPIAUJA8lD2VBJmVipYqAXSJW4Ed5KSE9gW6TUKgRNVQtAItbFi4Fu4V5ICkdz2AV6FeoARJbuFQE81WgBYqVoageSoAT4Ir2JAKkBagHk1IgAlI8rIAABTqABK1QpAFiSLkwBrqQR5LgUhOanIAiTwU6gU7hSpEUA0JoTJIIfkoBSesFyQC5CESC2KyWAJgmCkgHJFASigBUkkqAkqWBF7yAF5TnZZAJSFKAJKgFyO5c8gWMS2SQSF8kkVAv1KBAFCFS4E+CNNSfJQAoeZIA1NVSgFzklVqBc0IASy6BIIqUUCYSsclNQAoUArykoegDQmQmoJWpMKXAg/YWKAJC+SnQCpXqGoHgmok1BeRBBWgCVutyALl+ZMVIAqeDwegJIsAAXKgkkL5XwCQUjoWJkCyR4UoBoeigBU1SyyB7gqi+wSVNLlgCDwATqTEBUCCAANUWoByQuCwSICz5SiygLUQkFmZ6l+cpFiQVFKgEyF+wFChBUAoWJAgpKLHYAqqeAI8kUTRQCJD2BJATQA8hQCIoWKAEpHpaoChqaATJAAUJuqagmmi+SYI7gFyaFAJuRbqQTIBUQC1V9mpEAeSbkgFCkBAFzRUoBciUW0ATIHkCfQSARUmoAVkCgE31NEstOgEd0lUmoKTUATnotiQCh4koTUDyV7BAH5AAnNanMrIBeQA0LGigmoFwCncuARQCoE1L9T2QAtUsAFwuAR2ACpNyKFQIoU6EyQARQlAWQAAuTAAQgLoTcPYFIol1QFBQRIUkBZQr0BKdSnVagEBoVAKHkAKh7A8CpNeoAQAi3KgFDmUWIoCTHVIosgIvsJoAVkKgSGpQDyQAARAABIJQupMAGqUXkBEULEGoEotyQJoQAAQAILAIQySaAFLHgBLrpAXgACQDyHoA9IsAaAoJYK9AChQqSAWCkAAQCUXQsagFy/IALFCALCcyQUvzItqAWKgAABHVUAKdwrcqBUKHoA9hYACwFQueQNEqsFAALgSFwCkEgAEAEVKlQBKKQCKAGvJCVBFpXQ0AS6lSQA0AJCAChMFSQJPREXKABICKSgFytFtQ9ABEHsCyLBYAsSRABJUAhJsuiAsHouaAQSeiZASSVsAQU7nuAPBcgAg5h7BUJugLJHcrZKgtgr0AAjuASl1AAgBKCgGhXqAAewCINCoBIVQFRbdAASqgVPJrCAqKAVkr0KpYFqSGgBJUAgr1RYAAgAsHoDkSU8FAL9SAiwFgNeYAaABagAEFfQAeCvWCACD0ASFagEVCLAJ6WxEwABJABFwvAHMsalAC4AHkAJLABUEoAe1JAKVOQBQsfmAFg8gFIPACoVKgFPAegAivgkBKLXsAaHpUAgC4BcAD0HsEotITVdAC4AeYEusXALiXBansQFLooGhJHk8AHs/MpFNABPyUDUpPUKdwFT8gF1Y6L6ACxQpQAuigRYkm5QAKFgIJp0KE+QRYoX5GgKkly3QCDmVAKgSCKEgeiQAJSl9VARU5gLMHsBD2AL7TRYvqABKAp6IAOZ6PaXrqCknsBdEK9gCpXsAAAAakgR4AoAQGgFTRAF1JLgEEUQBZ8IspHcFuBAGpShoAi+LJoVmQW6KAJTut+gAFgCalivY56AATYEVIWoBHg1QF8Fz0ASGnI1AJD0CQoAAWA8QCTUFSY7rcgEhQAAnsBoSEQAkeF5gBISBSQKgBUAC/U9gF5PIAT2LAFS4X6gimi8gSQp3ACncPQEkBoB6PyKgHqpoAIuiKBEmp6KAXgLgFQAE56LFz0BoVACUqpIEAacgAKgSRVOa3AlYSQCQnQgDyT4DyCLdUA8l6lepUEIU9AEgBHk/IuoJTue1SwCLcoAEAFChoAW6HsoAEgBGhboXAA1AOQWPAAeiQAPQAixUCO5IW5AcgkjyCKAGpRPKwAGpIFwuATZIqpcCCQ9AW5luoU7AXPyLnkAJgoBAeAEuKnoFgJT0B6UiwCV7Cn5gIoBKRPZQA9lwAgPYLPZjNViTUDyQXLdQJCgB6XkhUAlAFA8AXNAoBzJipUntIFy5BUCD2QegCh+RUAPJYCamoT2ADyWAkAACQL1JACUU9gX5HkuAEooEQT5PZYCdEjuoCKSewPYeCoBJB7BBfSSCz5A8gEpNFAVCQJKpXstALhooJaQkATyoCeFOepNgPQQXARQBFoWAqTdFsAkFLqAV6KgFy3NUAm2iKgC1k15J4gF8mhfmegAASPDKqQTQA9ABVJkntJAEWWTUAgKdy3UEpdaHoqAIoBFyS3UDQT8zyCwHIn9oHsIIABAU8HI9AeQ9p4BSLpC+gAACbEEgX6H5FQD2VqTAAeEIBQ1ADXkTQBCJVAUgAKnsK9QJPRJyAIC4AXAIrzCPJ6ABAWC0yRBoAB5AElQKFj2AuqBYAtzI8gHs9JK6geSQkEX0QT2AKlwAWUpcA9hzAPBIAmizJyBPa07pHllHcEJJIAPRYmaAAAeSJAAPJbqBUocytwPRQrUACCQJuUKTJoAciAArQKAE3AA0ORF+YHoutUAAAi4EUBUnsVQFAANeZ7OegFE5rUADmAEgB6K9iADUKlQKV5hJUCpOproASei55kE9KV6AGgfmQBqHoARSKdQEUr2AlIXU0AsVoJ6BdZRQAmKEFALdTwaL6BCwAHoscgD2ICyfkEAQVVJoAXRQAWQTQsEAk16rBXsWAokr7NQRawJAKVADUADQ9BUACoB5JQFQ9AL4PITIHMPyARSAAPRIAVNQCqL4A1EWO4EFSfJNgCvYg5gRJ6XRKgUSaVU8AckrfRbgHs9Fkp0kFJNEgFLHoAICoF6lSakdwKgAFw0AD2QB6CdSQDQ5JUF/Mv0COwFZCacwAPZUCncTysgWKwAHugEWACZIkD0kr5KgQcgsAW6gAVsVAL9TnqUAOZJpyIkDwUJg9gWE1WgB6DkBB4RQKlah7BFIg9AhCgAaJWvIFIKWIBUqEgV6HkiCQICAD0ilewIvknwABFgC4ACyhcCK9AAKFAA9VKJ7ovID3VFikFADwSadwCD0vgENCSAKpdQD2eT1Q9gegoaASQeybcgA5HkCf2EeQAIqigTQ9IoEeQABU8ABfoewDUuAXJKGgF6ItbaFOYGiVWp6AC6AsFbng9AakeSakASXKlwPRNAAgPVADQ1QBZLkpAL5IoHoCS/lJ8rABqa6EgGhyK9wKEqgAXhPYL+R6FqCeyakkABzAKhTqUoBBpyLkeQKlO5SSYA8EdwrPQD2i3JAiYVD2AT1LgGuhoTC8gQpJW4BKclIBFhUAuFwCyQuhIFDmFAKHNAFCSARfJQuBqekWABUmQPZTuXIANQmQJgoV7FQVDvUkD2Sa8isgi+yycwWQqTeAKosEgIXWncAkmexQASiwBBzSddVAnvCEqBboBUCnYoQAnNeRABBqeilAI8BqkSCwcyakV6gcz2cyt9AC6p4AAqBJCT5AUkggC1AATwpoX5AEXCfAGiVlfICR4WxyIAmnNFIAsBQALHgCKB6K9gL9CPBaSkATAT2KgFiADyT2KgIoAjLRNQC/QsIChEkyBMdyxWyRcFqWCQPZ7CnMAT3ICmoXgC4AHkvUr7ASSsrYpAHo9kAFDyHoCfIa3oSAeAA1ArAKmocgLFSCewFRIqoFJWiU7rAJ7KyAFep4JkAKBqBJqi06gSRJJABQuASR5KEAqE+QDyeiCQKEkAGhbqHoD0BqB7JgAOQeSQA9AAFwDQggCD0SAAAageQPQl1APYWAkAEqshIEdrleqKAinMD0U6L7ASnc9FQCbc0qqUAt1WvVIstIAPQW5gFuR7JA8gQBUgAF9JB+0BIUoBJFtQ9AHsr2JkCpPgkt1A0AoBU9mnIApNAAA9gFCneVSoFSpJYCiaLYsBEhCz2BPZ7IJAAAt0Kh6A1AgCpQv0PQAi1AqVS6+gTUABYT2sATUJAPB+wr2PQJz1UAPZMooAFwPJ+wKgXrYCQLkVCQPRyORcCA8QgL7EWACndFApAmnJQLlwAjxUDUAsfmegSqkgCpUmQKFgAgIg9AaHoqagQei3UAAoBbrJ7CoEQWg9EAEABeoTAB+wPS1BLV1L11AAkAVPRcvzAk1JIBNFJQBUXyCUVFqARfUsVAvyPQAX6ERB+0oBJonpa9gIoFgAACKhEdz2BMkGhyAmDkQaAUlPa8tU/MF15lAuBHcLgFRKKBzDkUBKLAAgupPaAPRP7EuoCLWoBY0KwQCVlY6BXwCoFQIg/M8lgBKr7ArcDyB4CaEAF+oACLAHK4T3PYAFaABSpYAJKgFwkCsnsgAA01BGUIagVJKdye4LyQACp7AAJqBJHY1LAt05p7WQI1WapyALhZYBDVUA5BBcEmVqABJRAWtkjstADyewkAjynhQPB7CQJkCAPa8mNLqAey/I8gHY8AJNlggnUCsFg9gaFYCQAJAr1gRQPQACLVAWIJK9QEVF9gnNTUgCKgSBqcw9gEHkp0AAkBLKAll9IsAXKljUCodjQDSAAAJAkAEWCSwFahJEVALE0APBHkAAOYHNZoncA9hB5AKhToAR4PJ7A8gXA8iygAeiQCpUAmhFSgCT+xTyeAIk0OZbqACAVX0UAOZNiDwCQqeVi4BqEABNgAk0Lgi16k1IBFqFOYBUgAAArdJUBFD2BNiKFuoBUDUCpASBzCUuChQqBMgAQWADwak6EAc9CT2VAS66AERIVACIUASZ8BEAB4L9ALAR4AjyKgB3RagLRClOYE0ABUkpQAgmLkyRQEUoAIs6EAkqAAFgLBBPcD2ULFO4HqBJ8KAigEkHIAsCAyQsWAI1ACQ5AHM05EEUAsByA8Hk0JALFuQAFQACkAFCCQCaFAAhKLYAKJSQXUI8gAWOQFytBAWpEEUKwBMFE5qAciSIAg8gCT4JXUAKVSYWKgFokmoABAGpEABJQ1kkC5RQEDQAmxHhLVusgAUiQKkgAalAAmpoQBoUJrUAA0A9lw5AX5CLUChNiZIBFPUACLUAI7ElAJKGgBNiEUAtJeAAORAAACLWhIIpEWASkrqeCAAsAEQEASEmoAigToRU1KASRUgkC4AHkmAmAEW9CAJBAWewXACnUNARSKk6gnNeRQuAeQBKXVFpUAsRqTQC/ImpWCYA0AqCSpTsaAR3PBJAGmpWpIBcCwBCWqoJdaCAoAHMmkAAU6hcDwqXKAT3VNAAAA5pRQAARahEAFDwAFwAvzKBQAS/JQNVQnUChzCoBeAAAuB5JuAJdZCIkChIAciDQ1AkgoAXOZUsBPYqFwChNwCamhqaAVgDwCpQvzKwAB2AIsUgtQDyEEwBUC9APIEAVmQPIEgAk6rc5EQBQqeQChHcg0AmiQpQCoFQRY7lS4BSSDmBNiLgBMWSxzNQWCkl+hIFO4EgRUuk6qBqFiQCgAeA9lwIAkA9AAFwDwCVuC+UX0AUEWQRalAFhABaIXgqAGoB5AqASWUEoABNDUAEU8ARKykFARQpAJKxBMQRIEnIACxWCgGoQvIEg5EQSAQigUguWLAQXJTXUFnsQmixUAovJL8wLAVApAUUEoElwCoVkCbmh5AK9QSQWomqgAAAWBKwumiFIAii2KAFJPJQ5gQBrzACOxS+oCSoBAHoAggAoGh5BJqQsyAeQAEmqyVANTUAiqLUsAFCIAsvhDwAkqeQKdAogLFgQFCoBQACpcACxcoB5NNA9AeShPcsAJ6WoF+aLABMBBcEUlAUrJ4AKBEdwChYPAHhFARQAqQTqeAAr1PAAABYolALLY0AJgpQhAWJmdSexYALgBaQAIJACsUK0AAACZSy8jyCKGoFSQmQKCL4A1RQAOZeAAAICkFgDkaGugFypIBUuUgkAuFwNTQAAp1IgAmwAlaqFwRSwBokSspcFXylUqC6ouoCLSgXANUW4AExcCwUIsBEE2LFgICkFwRSKkgeDyley1AOZWpaAKkmpYCLagRcFT0SAHgigCaLEQa8iQL9gAL0IACvYPJMdgAgnUAr5DUA8FQCvc5FgAgAC9CSAIA9gVkmIRfIBULgSi1LSAWNCfAAcgAqqaAEooAeSwHoJIA0K20ACwRc1AusIV7ASVJuAAR3AKQFANA5k0ALp4UA5F5IAJJ0IBNFJqgC1KyAJMLeQEhSZAJRbAB5PB5AsSlQFK9g5gEBNYASsrIBoIoEFE/asgJMKAkeVRQCe5HskAACShfqSBAeCAAiskgWVNSwAlJNAUg5IBPkWyAKUSIAXQkAqHoAoB6BFukkVBYtqaleQAcy/U7AVkKwAFyyUqCiUWIBKjLkxBfIFewHsSSIBShJAFw9nIBFpICQoAGglwU5ESSBSepCe1moEymqlY6AE1JhAU1SVAKBcCEmFJqBAABcPAAeT0AegAggAJClgCNCUkiAWdALAFCC/WAAALoTXqseANCpMdwDkQFqAVknueDmBSEpBK0gAEBbkQAFw8EgWkT0teQAT3AIhOZVQAlKAokKARYKAEk+UBQqAWRady4BPkLATMkWSakAomq6agSnlQA1C/UAKyUBLilARZKFgRdE8KBIFADuFwJQiYWQXkk6B6ArQ1NS8AQVORqBWOkl+pckCxNFsAx9LHkJsC+kC/WAOZfqHm4BBHYA8hSTwCQpeE9AvJFoAQSacyPAFCYKwmoLYg0ANdEUsBAeD0BUk9kageSyoCpqTKQCxYqTJYC/IqeywJ5UAC4QBIfkUkAjUS4LVLrWxGgAVSvkFuqJcFPJEEgk+xSAPRqqUoBpoSlygLUKQWBFjyHsBPS35AIpQr1A9lSkSAF+pzPEgixBABZI7St0sC1AgArKW6AKez2AVCSKgSlZWYvoWgEF5gItuiTWq1tzArcmgR4AglFn2CT3I6rAAFTQCyTosoC4SS/UpIHiEmq3KdwNAoXgElaWIk56AnZY8ngiQOeh7JSKAoJ7gFsSigRCTC1SdQWAifQAW6Fz2AST4uQBByJokVgF8hKV6Av8A83JSFAqSeCgFiIjmTCV9AoABYLgW6Is16gJKx5NNSKcgJA8AVk/YFewBfqkarMACeJUDUoV7lYA01INQBO61kuCVlalC4HsklAU8hNuYHoEie4F1olei6gl1juSVqBroeynQ8gTqXkKdwSndYJSncFuTSRPQLBWOhpACaqigW6FI7BAE0JCfYEJdUkFpPM5k/kV6AT3KBNwSFIgoBySqxUpcANQDQqcjQAoVPIGhcocgRalAA9kgJ6W0hIFIVLlwRSncpAGgAAAGpoVSgMpSk85C4FLhCzHUEqBoBBQKAnNeRJFQKxBeTQAikBTrB4AgJKAFywBqeigABYEpVUAXQlFAKk6ABWQqBBOp7PIEwIoBoeSoJ6NFv1QFIKExYDQSPK8gPElyACgXAIBAWndU9lwReRMUAIVDUC3cgJAKpQmoLCpQgCyRZSADwi16gkKWACO5ZNQXwl+agEly4AeApAF+oHMCtSCQCYghJWAKFQoBHckKgEgCUWABFhNSQJlfJQAAvABJSxoAWRaAEgAJKx4ApW5STwAV5ATUASq3AStOSzYrIFQ1SAUmDSACDwl15Al1KAF4AsABQCKE6gBURaQBoalACkJTsseAAJAK1CyAs06hMEaAIpEgAdgNSoASEkQAegAJKgJVa9SxNAK1JugCwH5kx3BNFhIWtQPAH5ASl1KAlugsgEmp6AKEnsBCadF0APAi6gUNStEBSpQAm5JpIBcsAJKwW6ABUnU5gIqUBQgATwsoAUWkFwCp6AKlyfJSQSyhIFxKLFQRagAWDUA8AAHsrIBJU9AewALFQBObKjFQOaTVUBeRQAJnsR5DUCtwAATmCiSoJRY8ngpAElSCAJD2AahUA9geAPQnlagBUkADsBcmCOhTmBAWOYIyonoqARcgALAAmin5gkkWXUoB3CYAKlgBPS6lwAoEgjLklCQCwAQqeIIA8BzACZJhAUCnYD0WWEnyBTuT5KIBRfR6PYHpSqfkBIVALSaESXAr0JJolOgL4CakAQH5gEnIAIk0ORfnAAQQBXseivYsAezUA8ngp3LQBGq3SvY9gHtPKwBcmQgACK9AQoqApqQAJSFAK0KhIHkp0F5AhJAABcEUivQmoFhFASl1QFEWAEWexAAeyQRblEBfZIgL7Kh6A1CPB7AlKrKUBT0cgCJKyHgD2aBPkCdVhKdQD0ABqqWKyAVPZ4ARaSAQXL9QBC63BDQUDyi0QFDyR4BFjuegCwiwBqFugBqUgg8ASVDyAFAAF0BKkka6EgVoHoAKnpQSQkBKFVkAg9AAB+QHtKqAlRQD80W1AChND8wEU9ABzLkgBQ9gl1goQB6PJcuB4D0R4AJJPYBXqegAqSAa8hUqBMQigFSLklKcwDyVNQLB6OQCXUACwAinoEhfQR3AgTRYAqW6Ho1AsBoAUNTQCAPQAHgEut6FyK8wIoABoFJ6kxIAXACSnUgCA9ACE16qAFPR5AD0QBoUPIAFAC4ICkouIASdDmCnsSQWocknkCnsTmC1BjOoMhIUAskqBWEIAUI1SQUqRonMFRUkF5J7J0SNQZCLPIASNVALdBAL9FunIgFXkxnkoHomokgahBAL+ZCSQClU5qAIAtQTmC3KyTySAW8nsSQUAASSdAUr2AChWTkACToAvIrKSQCic1BAnQjQFEjmsgQIoEFZOQBqeBIBQALhhAAANT0HIEW6Rqs8gCU5qBoWEArK+gA8noJA9oScgUI0TmClewxnUGRVI0SAZSRokkgpZI0OoKJyI0BT2AB7TmoFhFBWPpSdQPQkqBJFjkgLJfqJOgKABoEpGgLcSSQUr2SFBJWJRQPRH7EUCTlokryAjwAAVTmk6gyqJCgAARJzTmoHor2CAAlJAWQABI5gs0OSSoIqSoBHdjDICok6kgtSYnqxjVkACdQWx6SCAWUVOYLcr1JSQUSDmChyQFEg5gp7SSAUp6IABJUBPYSC+iqRoRzBSQA5CSoHlFTkC8hJ0IBbnkALdAAPYJIKJCgXEjQ5gsiSQClhIBfBYjVJBbdAAKl0XEAX6AAnlYSQW3ITCoFwOQEdyZqkczmC0BJBanujGNVkF56jGNWQP//Z" style="height:28px;filter:brightness(0) invert(1);opacity:0.92"></div>
   <div class="gnav-r">
-    <div class="gnav-date">2025.05.14</div>
+    <div class="gnav-date">2025.05.15</div>
     <button class="gnav-admin" onclick="openSheet('sh-admin')">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
       관리자
@@ -278,49 +255,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 <div class="page active" id="page-insight">
   <div class="tile">
     <div class="slabel">오늘의 투자 인사이트</div>
-
-    <!-- 전체 요약 -->
     <div style="background:rgba(0,102,204,0.06);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:14px">
       <div style="font-size:11px;font-weight:700;color:var(--primary);letter-spacing:.3px;margin-bottom:5px">오늘 한 줄 요약</div>
       <div style="font-size:15px;font-weight:600;color:var(--ink);line-height:1.5;letter-spacing:-.2px">반도체 훈풍에 코스피 강세, 미국 기술주 동반 상승 — 단기 상승 모멘텀 유효하나 FOMC 의사록 주시 필요</div>
     </div>
-
     <div class="cgrid">
-      <div class="card full">
-        <div class="clabel" style="font-weight:700;color:var(--ink)">한국 시장</div>
-        <div class="cval">코스피 반도체 강세에 힘입어 상승 마감. SK하이닉스 외국인 순매수 5일 연속 지속.</div>
-      </div>
-      <div class="card full">
-        <div class="clabel" style="font-weight:700;color:var(--ink)">미국 시장</div>
-        <div class="cval">나스닥 기술주 중심 상승. 엔비디아 AI 수요 기대감으로 신고가 경신. 파월 발언 소화 완료.</div>
-      </div>
-      <div class="card full">
-        <div class="clabel" style="font-weight:700;color:var(--ink)">AI 증시 전망</div>
-        <div class="cval">단기 상승 모멘텀 유효. VIX 17대 안정. FOMC 의사록 금일 발표 예정 — 금리 경로 힌트 주목.</div>
-      </div>
+      <div class="card full"><div class="clabel" style="font-weight:700;color:var(--ink)">한국 시장</div><div class="cval">코스피 반도체 강세에 힘입어 상승 마감. SK하이닉스 외국인 순매수 5일 연속 지속.</div></div>
+      <div class="card full"><div class="clabel" style="font-weight:700;color:var(--ink)">미국 시장</div><div class="cval">나스닥 기술주 중심 상승. 엔비디아 AI 수요 기대감으로 신고가 경신. 파월 발언 소화 완료.</div></div>
+      <div class="card full"><div class="clabel" style="font-weight:700;color:var(--ink)">AI 증시 전망</div><div class="cval">단기 상승 모멘텀 유효. VIX 17대 안정. FOMC 의사록 금일 발표 예정 — 금리 경로 힌트 주목.</div></div>
       <div class="card">
         <div class="clabel" style="font-weight:700;color:var(--ink)">추천 분야</div>
-        <div class="cval">
-          <span class="tag tag-b">유망</span>반도체<br>
-          <span class="tag tag-b">유망</span>방산<br>
-          <span class="tag tag-w">관망</span>2차전지
+        <div class="cval" style="line-height:1.9">
+          <span class="tag tag-b">유망</span><strong>반도체</strong> — AI 수요 확대로 HBM 중심 구조적 성장<br>
+          <span class="tag tag-b">유망</span><strong>방산</strong> — 글로벌 지정학 리스크 지속, 수출 모멘텀<br>
+          <span class="tag tag-w">관망</span><strong>2차전지</strong> — 수요 회복 신호 있으나 재고 우려 잔존
         </div>
       </div>
       <div class="card">
         <div class="clabel" style="font-weight:700;color:var(--ink)">추천 종목</div>
-        <div class="cval">
-          <span class="tag tag-b">매수</span>SK하이닉스<br>
-          <span class="tag tag-b">매수</span>삼성SDI<br>
-          <span class="tag tag-s">주의</span>카카오
+        <div class="cval" style="line-height:1.9">
+          <span class="tag tag-b">매수</span><strong>SK하이닉스</strong> — 외국인 순매수 5일 연속, HBM3E 점유율 확대<br>
+          <span class="tag tag-b">매수</span><strong>삼성SDI</strong> — 과매도 구간, 유럽 배터리 수요 회복 수혜<br>
+          <span class="tag tag-s">주의</span><strong>카카오</strong> — 실적 부진 지속, 규제 리스크 해소 전까지 관망
         </div>
       </div>
       <div class="card full">
         <div class="clabel" style="font-weight:700;color:var(--ink)">오늘 액션</div>
-        <div class="cval" style="line-height:1.8">
-          <span style="color:var(--up);font-weight:600">✓</span> <strong>반도체 분할 매수</strong> 검토<br>
-          <span style="color:var(--up);font-weight:600">✓</span> <strong>2차전지 저점</strong> 확인 후 소량 진입<br>
-          <span style="color:var(--down);font-weight:600">✗</span> <span style="color:var(--down)"><strong>급등 바이오주</strong> 추격 매수 자제</span><br>
-          <span style="color:var(--down);font-weight:600">✗</span> <span style="color:var(--down)"><strong>달러 강세</strong> 구간 환전 서두르지 말 것</span>
+        <div class="cval" style="line-height:2.0">
+          <span style="color:var(--up);font-weight:700">✓</span> <strong>반도체 분할 매수 검토</strong> — AI 서버 수요가 HBM 공급을 초과하는 구조적 강세 국면이나, 단기 과열 우려가 있어 일시불보다 2~3회 분할 진입이 유리<br>
+          <span style="color:var(--up);font-weight:700">✓</span> <strong>2차전지 저점 분할 진입</strong> — 유럽 전기차 보조금 재개 소식으로 반등 신호 감지. 단 본격 회복까지 시간이 필요해 소량 선취매 후 추이 관찰 권장<br>
+          <span style="color:var(--down);font-weight:700">✗</span> <span style="color:var(--down)"><strong>급등 바이오주 추격 금지</strong> — 임상 결과 기대감만으로 단기 급등한 종목은 재료 소멸 시 급락 위험 높음. 진입 근거 없이 추격 매수 자제</span><br>
+          <span style="color:var(--down);font-weight:700">✗</span> <span style="color:var(--down)"><strong>환전 서두르지 말 것</strong> — 달러 강세 구간이나 FOMC 이후 방향성 확인 전 대규모 환전은 불리. 분할 환전 또는 관망 권장</span>
         </div>
       </div>
     </div>
@@ -330,15 +295,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 <!-- ══ 브리핑 ══ -->
 <div class="page" id="page-briefing">
 
-  <!-- 섹션 앵커 메뉴 - 텍스트만 -->
   <div style="background:var(--canvas);padding:8px 20px;border-bottom:.5px solid var(--hl);display:flex;gap:16px;position:sticky;top:88px;z-index:90">
     <span onclick="scrollTo2('sec-indicator')" style="font-size:12px;font-weight:500;color:var(--muted);cursor:pointer">주요 지표</span>
-    <span style="color:var(--hl)">·</span>
+    <span style="color:var(--muted2)">·</span>
     <span onclick="scrollTo2('sec-stock')" style="font-size:12px;font-weight:500;color:var(--muted);cursor:pointer">주식</span>
-    <span style="color:var(--hl)">·</span>
+    <span style="color:var(--muted2)">·</span>
     <span onclick="scrollTo2('sec-news')" style="font-size:12px;font-weight:500;color:var(--muted);cursor:pointer">뉴스</span>
   </div>
 
+  <!-- 1. 주요 지표 -->
   <div class="tile" id="sec-indicator">
     <div class="slabel">주요 지표</div>
     <div class="ptabs">
@@ -356,12 +321,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       <div class="mchip" onclick="selChip(this,'다우',49760,0.42,true)"><div class="mlabel">다우</div><div class="mprice">49,760</div><div class="mchg up">+0.42%</div></div>
       <div class="mchip" onclick="selChip(this,'VIX',17.9,-4.3,false)"><div class="mlabel">VIX</div><div class="mprice">17.9</div><div class="mchg down">-4.3%</div></div>
     </div>
+    <!-- 차트: 타일 전체 폭 -->
     <div style="margin-top:10px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
         <span style="font-size:13px;font-weight:600;color:var(--ink)" id="cn">코스피 2,641</span>
         <span style="font-size:12px;font-weight:500" id="cc" class="up">+1.24%</span>
       </div>
-      <div class="cwrap" id="cc-wrap"></div>
+      <div class="cwrap-full" id="cc-wrap"></div>
       <div class="caxis"><span>09:00</span><span>11:00</span><span>13:00</span><span>15:30</span></div>
     </div>
     <div style="border-top:.5px solid var(--hl);margin-top:2px">
@@ -390,7 +356,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
     </div>
   </div>
 
-  <!-- 주식 - 원래 표 + 우측 스파크라인 -->
+  <!-- 2. 주식 -->
   <div class="tile" id="sec-stock">
     <div class="slabel">주식</div>
     <div class="ptabs">
@@ -409,11 +375,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       <table class="dtable">
         <thead><tr><th>종목</th><th>현재가</th><th>등락</th><th>%</th><th>차트</th></tr></thead>
         <tbody>
-          <tr><td>삼성전자</td><td>78,400</td><td class="up">+800</td><td class="up">+1.03%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,20 C10,18 20,14 30,12 S45,8 60,6" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>SK하이닉스</td><td>192,000</td><td class="up">+4,500</td><td class="up">+2.40%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,22 C15,18 30,12 40,8 S52,5 60,3" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>한화에어로</td><td>312,000</td><td class="down">-2,000</td><td class="down">-0.64%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,8 C10,10 25,14 35,18 S50,22 60,24" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>현대차</td><td>241,000</td><td class="up">+1,500</td><td class="up">+0.63%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,18 C15,16 25,14 35,12 S50,10 60,9" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>NAVER</td><td>184,500</td><td class="down">-500</td><td class="down">-0.27%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,12 C10,13 25,15 35,14 S50,16 60,17" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>삼성전자</td><td>78,400</td><td class="up">+800</td><td class="up">+1.03%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,24 C20,22 40,18 60,15 S90,10 120,7 L120,32 L0,32 Z" fill="url(#sg1)"/><path d="M0,24 C20,22 40,18 60,15 S90,10 120,7" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>SK하이닉스</td><td>192,000</td><td class="up">+4,500</td><td class="up">+2.40%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,26 C30,22 50,16 70,11 S100,6 120,3 L120,32 L0,32 Z" fill="url(#sg2)"/><path d="M0,26 C30,22 50,16 70,11 S100,6 120,3" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>한화에어로</td><td>312,000</td><td class="down">-2,000</td><td class="down">-0.64%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3b30" stop-opacity=".15"/><stop offset="100%" stop-color="#ff3b30" stop-opacity="0"/></linearGradient></defs><path d="M0,8 C20,10 50,16 70,20 S100,25 120,27 L120,32 L0,32 Z" fill="url(#sg3)"/><path d="M0,8 C20,10 50,16 70,20 S100,25 120,27" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>현대차</td><td>241,000</td><td class="up">+1,500</td><td class="up">+0.63%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="sg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,22 C30,20 60,17 80,14 S105,12 120,11 L120,32 L0,32 Z" fill="url(#sg4)"/><path d="M0,22 C30,20 60,17 80,14 S105,12 120,11" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>NAVER</td><td>184,500</td><td class="down">-500</td><td class="down">-0.27%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="sg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3b30" stop-opacity=".15"/><stop offset="100%" stop-color="#ff3b30" stop-opacity="0"/></linearGradient></defs><path d="M0,14 C20,15 50,17 70,16 S100,19 120,20 L120,32 L0,32 Z" fill="url(#sg5)"/><path d="M0,14 C20,15 50,17 70,16 S100,19 120,20" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
         </tbody>
       </table>
     </div>
@@ -421,17 +387,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       <table class="dtable">
         <thead><tr><th>종목</th><th>현재가</th><th>등락</th><th>%</th><th>차트</th></tr></thead>
         <tbody>
-          <tr><td>NVDA</td><td>$875</td><td class="up">+$18.2</td><td class="up">+2.12%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,22 C15,18 25,12 35,8 S50,5 60,3" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>AAPL</td><td>$189</td><td class="down">-$1.2</td><td class="down">-0.63%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,10 C15,12 30,15 40,16 S52,18 60,20" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>TSLA</td><td>$172</td><td class="up">+$3.4</td><td class="up">+2.01%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,20 C10,17 25,13 35,10 S50,7 60,5" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>MSFT</td><td>$415</td><td class="up">+$2.1</td><td class="up">+0.51%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,18 C15,16 30,14 40,13 S52,11 60,10" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
-          <tr><td>GOOGL</td><td>$178</td><td class="up">+$0.8</td><td class="up">+0.45%</td><td class="spark-td"><svg width="60" height="28" viewBox="0 0 60 28"><path d="M0,19 C15,17 30,15 40,14 S52,13 60,12" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>NVDA</td><td>$875</td><td class="up">+$18.2</td><td class="up">+2.12%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="su1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,28 C20,22 40,16 60,11 S90,5 120,3 L120,32 L0,32 Z" fill="url(#su1)"/><path d="M0,28 C20,22 40,16 60,11 S90,5 120,3" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>AAPL</td><td>$189</td><td class="down">-$1.2</td><td class="down">-0.63%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="su2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3b30" stop-opacity=".15"/><stop offset="100%" stop-color="#ff3b30" stop-opacity="0"/></linearGradient></defs><path d="M0,10 C30,13 60,17 80,19 S105,22 120,24 L120,32 L0,32 Z" fill="url(#su2)"/><path d="M0,10 C30,13 60,17 80,19 S105,22 120,24" fill="none" stroke="#ff3b30" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>TSLA</td><td>$172</td><td class="up">+$3.4</td><td class="up">+2.01%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="su3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,24 C20,20 40,15 60,12 S90,8 120,5 L120,32 L0,32 Z" fill="url(#su3)"/><path d="M0,24 C20,20 40,15 60,12 S90,8 120,5" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>MSFT</td><td>$415</td><td class="up">+$2.1</td><td class="up">+0.51%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="su4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,22 C30,19 60,16 80,14 S105,12 120,11 L120,32 L0,32 Z" fill="url(#su4)"/><path d="M0,22 C30,19 60,16 80,14 S105,12 120,11" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
+          <tr><td>GOOGL</td><td>$178</td><td class="up">+$0.8</td><td class="up">+0.45%</td><td class="spark-td"><svg width="120" height="32" viewBox="0 0 120 32"><defs><linearGradient id="su5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c759" stop-opacity=".15"/><stop offset="100%" stop-color="#34c759" stop-opacity="0"/></linearGradient></defs><path d="M0,23 C30,20 60,18 80,16 S105,14 120,13 L120,32 L0,32 Z" fill="url(#su5)"/><path d="M0,23 C30,20 60,18 80,16 S105,14 120,13" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/></svg></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- 뉴스 -->
+  <!-- 3. 뉴스 -->
   <div class="tile" id="sec-news">
     <div class="slabel">주요 뉴스</div>
     <div class="ctabs">
@@ -466,9 +432,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       <button class="ctab" onclick="activeCt(this)">주식</button>
     </div>
 
-    <!-- 경제 -->
     <div style="font-size:10px;font-weight:700;color:var(--muted2);letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px">경제</div>
-
     <div class="mcard" id="mc2">
       <div class="mcard-hd" onclick="toggleM('mc2')">
         <div class="mcard-info">
@@ -491,9 +455,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 <a class="mlink" href="#">원본 영상 보기 ↗</a></div>
     </div>
 
-    <!-- 뉴스 -->
     <div style="font-size:10px;font-weight:700;color:var(--muted2);letter-spacing:.6px;text-transform:uppercase;margin:14px 0 8px">뉴스</div>
-
     <div class="mcard" id="mc4">
       <div class="mcard-hd" onclick="toggleM('mc4')">
         <div class="mcard-info">
@@ -507,10 +469,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
 <a class="mlink" href="#">기사 보기 ↗</a></div>
     </div>
 
-    <!-- 주식 (시황+종목 통합) -->
     <div style="font-size:10px;font-weight:700;color:var(--muted2);letter-spacing:.6px;text-transform:uppercase;margin:14px 0 8px">주식</div>
-
-    <!-- 핀 고정 채널 -->
     <div class="mcard open" id="mc1" style="border-color:rgba(0,102,204,0.3);position:relative">
       <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--primary);border-radius:14px 0 0 14px"></div>
       <div class="mcard-hd" onclick="toggleM('mc1')" style="padding-left:20px">
@@ -549,21 +508,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       </div>
       <div class="mcard-body" style="color:var(--muted)">아직 발송된 요약이 없습니다.</div>
     </div>
-
   </div>
 </div>
 
 <!-- ══ 포트폴리오 ══ -->
 <div class="page" id="page-portfolio">
-
-  <!-- 잠금 화면 -->
   <div id="pf-lock" class="tile" style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
     <div style="width:56px;height:56px;border-radius:16px;background:rgba(0,102,204,0.1);display:flex;align-items:center;justify-content:center">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     </div>
-    <div style="text-align:center">
-      <div style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.3px">포트폴리오</div>
-    </div>
+    <div style="font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.3px">포트폴리오</div>
     <div style="width:100%;max-width:280px">
       <input type="password" id="pf-pw-input" placeholder="비밀번호 입력" class="ifield" style="text-align:center;font-size:16px;letter-spacing:4px;margin-bottom:8px" onkeydown="if(event.key==='Enter')checkPfPw()">
       <button onclick="checkPfPw()" style="width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;margin-bottom:10px">확인</button>
@@ -575,8 +529,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
     </div>
   </div>
 
-  <!-- 포트폴리오 본문 -->
   <div id="pf-content" style="display:none">
+
+  <!-- KPI 4개 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:16px 20px 0;background:var(--canvas)">
+    <div style="background:var(--parchment);border-radius:14px;padding:14px;border:.5px solid var(--hl)">
+      <div style="font-size:10px;font-weight:600;color:var(--muted);margin-bottom:6px">입출금 합계</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.5px">13,126,473<span style="font-size:12px;font-weight:400;margin-left:2px">원</span></div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px">0.0%</div>
+    </div>
+    <div style="background:var(--parchment);border-radius:14px;padding:14px;border:.5px solid var(--hl)">
+      <div style="font-size:10px;font-weight:600;color:var(--muted);margin-bottom:6px">예적금 합계</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.5px">12,190,360<span style="font-size:12px;font-weight:400;margin-left:2px">원</span></div>
+      <div style="font-size:11px;font-weight:600;color:var(--up);margin-top:2px">▲717,080 (5.9%)</div>
+    </div>
+    <div style="background:var(--parchment);border-radius:14px;padding:14px;border:.5px solid var(--hl)">
+      <div style="font-size:10px;font-weight:600;color:var(--muted);margin-bottom:6px">보험 합계</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.5px">4,181,750<span style="font-size:12px;font-weight:400;margin-left:2px">원</span></div>
+      <div style="font-size:11px;font-weight:600;color:var(--up);margin-top:2px">▲50,000 (1.2%)</div>
+    </div>
+    <div style="background:rgba(0,102,204,0.06);border-radius:14px;padding:14px;border:.5px solid rgba(0,102,204,0.2)">
+      <div style="font-size:10px;font-weight:600;color:var(--primary);margin-bottom:6px">주식 합계</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.5px">58,240,607<span style="font-size:12px;font-weight:400;margin-left:2px">원</span></div>
+      <div style="font-size:11px;font-weight:600;color:var(--up);margin-top:2px">▲6,177,179 (10.6%)</div>
+    </div>
+  </div>
+
   <div class="pf-hero">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
       <div class="pf-owner">
@@ -586,116 +564,241 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
       </div>
       <button onclick="lockPf()" style="font-size:11px;color:var(--muted);background:transparent;border:.5px solid var(--hls);border-radius:9999px;padding:4px 10px;cursor:pointer;font-family:inherit">잠금</button>
     </div>
-    <div class="pf-total">
-      <div class="pf-total-label">총 자산</div>
-      <div class="pf-total-val">₩ 120,000,000</div>
-      <div class="pf-total-chg up">+₩3,800,000 · +3.27%</div>
+
+    <!-- 내 자산 한눈에 보기 -->
+    <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px">· 내 자산 한눈에 보기</div>
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:16px;margin-bottom:20px;align-items:center">
+      <div style="position:relative;text-align:center">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="52" fill="none" stroke="var(--hl)" stroke-width="18"/>
+          <circle cx="65" cy="65" r="52" fill="none" stroke="#c8fa00" stroke-width="18" stroke-dasharray="205.8 120.4" stroke-dashoffset="0" transform="rotate(-90 65 65)"/>
+          <circle cx="65" cy="65" r="52" fill="none" stroke="#a855f7" stroke-width="18" stroke-dasharray="43.2 283.0" stroke-dashoffset="-205.8" transform="rotate(-90 65 65)"/>
+          <circle cx="65" cy="65" r="52" fill="none" stroke="#22c55e" stroke-width="18" stroke-dasharray="46.6 279.6" stroke-dashoffset="-249.0" transform="rotate(-90 65 65)"/>
+          <circle cx="65" cy="65" r="52" fill="none" stroke="#0066cc" stroke-width="18" stroke-dasharray="31.0 295.2" stroke-dashoffset="-295.6" transform="rotate(-90 65 65)"/>
+          <text x="65" y="60" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="-apple-system,sans-serif">자산 합계</text>
+          <text x="65" y="76" text-anchor="middle" font-size="11" fill="var(--ink)" font-family="-apple-system,sans-serif" font-weight="700">87,739,190</text>
+          <text x="65" y="90" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="-apple-system,sans-serif">원</text>
+        </svg>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:2px;background:#c8fa00;flex-shrink:0"></div><div style="flex:1;font-size:12px;color:var(--muted)">주식</div><div style="font-size:12px;font-weight:600;color:var(--ink)">66.4%</div></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:2px;background:#a855f7;flex-shrink:0"></div><div style="flex:1;font-size:12px;color:var(--muted)">예적금</div><div style="font-size:12px;font-weight:600;color:var(--ink)">13.9%</div></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:2px;background:#22c55e;flex-shrink:0"></div><div style="flex:1;font-size:12px;color:var(--muted)">현금</div><div style="font-size:12px;font-weight:600;color:var(--ink)">15.0%</div></div>
+        <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:2px;background:#0066cc;flex-shrink:0"></div><div style="flex:1;font-size:12px;color:var(--muted)">보험</div><div style="font-size:12px;font-weight:600;color:var(--ink)">4.8%</div></div>
+      </div>
     </div>
-    <!-- 도넛 + 기간 수익 막대 나란히 -->
-    <div style="display:grid;grid-template-columns:88px 1fr;gap:16px;margin-bottom:20px;align-items:center">
-      <svg width="88" height="88" viewBox="0 0 88 88">
-        <circle cx="44" cy="44" r="30" fill="none" stroke="var(--hl)" stroke-width="13"/>
-        <circle cx="44" cy="44" r="30" fill="none" stroke="#0066cc" stroke-width="13" stroke-dasharray="131.9 56.5" stroke-dashoffset="0" transform="rotate(-90 44 44)"/>
-        <circle cx="44" cy="44" r="30" fill="none" stroke="#34c759" stroke-width="13" stroke-dasharray="32.97 155.43" stroke-dashoffset="-131.9" transform="rotate(-90 44 44)"/>
-        <circle cx="44" cy="44" r="30" fill="none" stroke="#ff9500" stroke-width="13" stroke-dasharray="23.56 164.84" stroke-dashoffset="-164.87" transform="rotate(-90 44 44)"/>
-        <text x="44" y="41" text-anchor="middle" font-size="10" fill="var(--ink)" font-family="-apple-system,sans-serif" font-weight="600">자산</text>
-        <text x="44" y="53" text-anchor="middle" font-size="9" fill="var(--muted)" font-family="-apple-system,sans-serif">배분</text>
-      </svg>
-      <div>
-        <div style="font-size:10px;font-weight:600;color:var(--muted);letter-spacing:.3px;margin-bottom:8px">기간별 수익률</div>
-        <div style="display:flex;flex-direction:column;gap:6px">
-          <div style="display:flex;align-items:center;gap:6px">
-            <span style="font-size:10px;color:var(--muted);width:22px;text-align:right;flex-shrink:0">1주</span>
-            <div style="flex:1;height:7px;background:var(--parchment);border-radius:4px;overflow:hidden"><div style="width:28%;height:100%;background:var(--up);border-radius:4px"></div></div>
-            <span style="font-size:10px;font-weight:600;color:var(--up);width:38px">+1.2%</span>
+
+    <!-- 월별 자산 성장 추이 (세로 누적 막대) -->
+    <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px">· 월별 자산 성장 추이</div>
+    <div style="overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:0 4px">
+      <div style="display:flex;align-items:flex-end;gap:6px;height:100px;min-width:320px">
+        <!-- 각 월 세로 누적 막대 -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:55%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
           </div>
-          <div style="display:flex;align-items:center;gap:6px">
-            <span style="font-size:10px;color:var(--muted);width:22px;text-align:right;flex-shrink:0">1달</span>
-            <div style="flex:1;height:7px;background:var(--parchment);border-radius:4px;overflow:hidden"><div style="width:55%;height:100%;background:var(--up);border-radius:4px"></div></div>
-            <span style="font-size:10px;font-weight:600;color:var(--up);width:38px">+3.3%</span>
+          <span style="font-size:8px;color:var(--muted2)">5월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:57%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
           </div>
-          <div style="display:flex;align-items:center;gap:6px">
-            <span style="font-size:10px;color:var(--muted);width:22px;text-align:right;flex-shrink:0">3달</span>
-            <div style="flex:1;height:7px;background:var(--parchment);border-radius:4px;overflow:hidden"><div style="width:40%;height:100%;background:var(--down);border-radius:4px"></div></div>
-            <span style="font-size:10px;font-weight:600;color:var(--down);width:38px">-2.1%</span>
+          <span style="font-size:8px;color:var(--muted2)">6월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:60%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
           </div>
-          <div style="display:flex;align-items:center;gap:6px">
-            <span style="font-size:10px;color:var(--muted);width:22px;text-align:right;flex-shrink:0">1년</span>
-            <div style="flex:1;height:7px;background:var(--parchment);border-radius:4px;overflow:hidden"><div style="width:72%;height:100%;background:var(--up);border-radius:4px"></div></div>
-            <span style="font-size:10px;font-weight:600;color:var(--up);width:38px">+14.2%</span>
+          <span style="font-size:8px;color:var(--muted2)">7월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:58%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
           </div>
+          <span style="font-size:8px;color:var(--muted2)">8월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:62%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">9월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:65%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">10월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:68%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">11월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:70%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">12월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:72%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">1월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:75%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">2월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:80%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">3월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden">
+            <div style="background:#c8fa00;height:88%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--muted2)">4월</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1">
+          <div style="width:100%;display:flex;flex-direction:column-reverse;height:72px;border-radius:3px;overflow:hidden;border:1px solid rgba(0,102,204,0.3)">
+            <div style="background:#c8fa00;height:100%"></div>
+            <div style="background:#a855f7;height:12%"></div>
+            <div style="background:#22c55e;height:13%"></div>
+            <div style="background:#0066cc;height:5%"></div>
+          </div>
+          <span style="font-size:8px;color:var(--primary);font-weight:600">5월</span>
         </div>
       </div>
     </div>
-    <div class="pf-kpi">
-      <div class="pf-kpi-card"><div class="pf-kpi-label">주식 수익</div><div class="pf-kpi-val up">+4.1%</div></div>
-      <div class="pf-kpi-card"><div class="pf-kpi-label">실현손익</div><div class="pf-kpi-val up">+142만</div></div>
-      <div class="pf-kpi-card"><div class="pf-kpi-label">USD/KRW</div><div class="pf-kpi-val">1,342</div></div>
+  </div>
+
+  <!-- 현금 + 예적금 현황 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hl)">
+    <div class="tile" style="padding:16px 14px">
+      <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:10px">· 현금 보유 현황</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead><tr style="border-bottom:.5px solid var(--hl)">
+          <th style="text-align:left;padding:4px 2px;color:var(--muted);font-weight:600">계좌</th>
+          <th style="text-align:right;padding:4px 2px;color:var(--muted);font-weight:600">잔액</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:.5px solid var(--hl)"><td style="padding:7px 2px;color:var(--ink);font-weight:500">신한은행</td><td style="text-align:right;padding:7px 2px;color:var(--ink)">5,521,230</td></tr>
+          <tr style="border-bottom:.5px solid var(--hl)"><td style="padding:7px 2px;color:var(--ink);font-weight:500">토스뱅크</td><td style="text-align:right;padding:7px 2px;color:var(--ink)">2,906,103</td></tr>
+          <tr style="border-bottom:.5px solid var(--hl)"><td style="padding:7px 2px;color:var(--ink);font-weight:500">우리은행</td><td style="text-align:right;padding:7px 2px;color:var(--ink)">2,370,010</td></tr>
+          <tr style="border-bottom:.5px solid var(--hl)"><td style="padding:7px 2px;color:var(--ink);font-weight:500">카카오뱅크</td><td style="text-align:right;padding:7px 2px;color:var(--ink)">2,059,130</td></tr>
+          <tr><td style="padding:7px 2px;color:var(--ink);font-weight:500">국민은행</td><td style="text-align:right;padding:7px 2px;color:var(--ink)">270,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tile" style="padding:16px 14px">
+      <div style="font-size:11px;font-weight:700;color:var(--ink);margin-bottom:10px">· 예적금 현황</div>
+      <div style="background:var(--parchment);border-radius:10px;padding:12px;border:.5px solid var(--hl)">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+          <span style="font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;background:rgba(0,102,204,.1);color:var(--primary)">적금</span>
+          <span style="font-size:13px;font-weight:600;color:var(--ink)">신한</span>
+          <span style="font-size:10px;color:var(--down);font-weight:600;margin-left:auto">D-1327</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">만기일</div><div style="font-size:12px;font-weight:500">2030-01-01</div></div>
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">이율</div><div style="font-size:12px;font-weight:600;color:#1a7a35">4.80%</div></div>
+          <div style="grid-column:1/-1"><div style="font-size:10px;color:var(--muted);margin-bottom:2px">만기해지금액</div><div style="font-size:13px;font-weight:700;color:var(--ink)">43,024,800원</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- 주식 탭 -->
   <div class="tile">
     <div class="sec-hd" style="margin-bottom:14px">
-      <div class="stabs" style="flex:1;margin-bottom:0">
-        <button class="stab active" onclick="switchPfTab(this,'pf-s','pf-c','pf-v')">주식</button>
-        <button class="stab" onclick="switchPfTab(this,'pf-c','pf-s','pf-v')">현금</button>
-        <button class="stab" onclick="switchPfTab(this,'pf-v','pf-s','pf-c')">예적금</button>
-      </div>
-      <button onclick="openSheet('sh-asset')" style="margin-left:10px;flex-shrink:0;display:flex;align-items:center;gap:4px;padding:6px 12px;border:.5px solid var(--hls);border-radius:9999px;background:transparent;color:var(--primary);font-size:12px;font-weight:500;cursor:pointer;font-family:inherit">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      <div style="font-size:12px;font-weight:700;color:var(--ink)">· 주식 포트폴리오</div>
+      <button onclick="openSheet('sh-asset')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;border:.5px solid var(--hls);border-radius:9999px;background:transparent;color:var(--primary);font-size:11px;font-weight:500;cursor:pointer;font-family:inherit">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         자산관리
       </button>
     </div>
-
-    <div id="pf-s">
-      <div class="pf-stock-row">
-        <div class="pf-stock-info"><div class="pf-stock-name">SK하이닉스</div><div class="pf-stock-sub">10주 · 🇰🇷 KRW</div></div>
-        <div class="pf-stock-price"><div class="pf-stock-cur">192,000</div><div class="pf-stock-avg">평단 168,000</div></div>
-        <div class="pf-stock-ret"><div class="pf-stock-pct up">+14.3%</div><div class="pf-stock-amt up">+240만</div></div>
-      </div>
-      <div class="pf-stock-row">
-        <div class="pf-stock-info"><div class="pf-stock-name">삼성전자</div><div class="pf-stock-sub">50주 · 🇰🇷 KRW</div></div>
-        <div class="pf-stock-price"><div class="pf-stock-cur">78,400</div><div class="pf-stock-avg">평단 72,000</div></div>
-        <div class="pf-stock-ret"><div class="pf-stock-pct up">+8.9%</div><div class="pf-stock-amt up">+320만</div></div>
-      </div>
-      <div class="pf-stock-row">
-        <div class="pf-stock-info"><div class="pf-stock-name">NVDA</div><div class="pf-stock-sub">5주 · 🇺🇸 USD</div></div>
-        <div class="pf-stock-price"><div class="pf-stock-cur">$875</div><div class="pf-stock-avg">평단 $620</div></div>
-        <div class="pf-stock-ret"><div class="pf-stock-pct up">+41.1%</div><div class="pf-stock-amt up">+170만</div></div>
-      </div>
-      <div class="pf-stock-row">
-        <div class="pf-stock-info"><div class="pf-stock-name">카카오</div><div class="pf-stock-sub">20주 · 🇰🇷 KRW</div></div>
-        <div class="pf-stock-price"><div class="pf-stock-cur">40,800</div><div class="pf-stock-avg">평단 52,000</div></div>
-        <div class="pf-stock-ret"><div class="pf-stock-pct down">-21.5%</div><div class="pf-stock-amt down">-224만</div></div>
-      </div>
-    </div>
-
-    <div id="pf-c" style="display:none">
-      <div class="cash-row"><div><div class="cash-bank">신한은행</div><div class="cash-cur">KRW</div></div><div class="cash-amt">₩12,000,000</div></div>
-      <div class="cash-row"><div><div class="cash-bank">토스뱅크</div><div class="cash-cur">KRW</div></div><div class="cash-amt">₩9,000,000</div></div>
-      <div class="cash-row"><div><div class="cash-bank">Charles Schwab</div><div class="cash-cur">USD</div></div><div class="cash-amt">$2,400</div></div>
-      <div style="border-top:1px solid var(--hls);padding-top:12px;margin-top:4px;display:flex;justify-content:space-between;font-weight:600;font-size:14px">
-        <span style="color:var(--muted)">합계 (KRW 환산)</span><span>₩24,200,000</span>
-      </div>
-    </div>
-
-    <div id="pf-v" style="display:none">
-      <div class="sav-card">
-        <div class="sav-hd">
-          <span class="sav-type">적금</span>
-          <span class="sav-bank">신한은행</span>
-          <span class="sav-dday" style="background:rgba(52,199,89,.12);color:#1a7a35">D-187</span>
-        </div>
-        <div class="sav-grid">
-          <div class="sav-item"><div class="sl">만기일</div><div class="sv">2025.11.17</div></div>
-          <div class="sav-item"><div class="sl">이율</div><div class="sv" style="color:#1a7a35">3.5%</div></div>
-          <div class="sav-item"><div class="sl">만기금액</div><div class="sv">₩15,000,000</div></div>
-          <div class="sav-item"><div class="sl">통화</div><div class="sv">KRW</div></div>
-        </div>
-      </div>
-    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed">
+      <thead><tr style="border-bottom:.5px solid var(--hl)">
+        <th style="text-align:left;padding:5px 3px;color:var(--muted);font-weight:600;width:28%">종목명</th>
+        <th style="text-align:right;padding:5px 3px;color:var(--muted);font-weight:600;width:18%">총수익</th>
+        <th style="text-align:right;padding:5px 3px;color:var(--muted);font-weight:600;width:22%">평균가</th>
+        <th style="text-align:right;padding:5px 3px;color:var(--muted);font-weight:600;width:18%">일간</th>
+        <th style="text-align:right;padding:5px 3px;color:var(--muted);font-weight:600;width:14%">차트</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:.5px solid var(--hl)">
+          <td style="padding:8px 3px"><div style="font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">SK하이닉스</div><div style="font-size:10px;color:var(--muted)">10주</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--up)">+14.3%</td>
+          <td style="text-align:right;padding:8px 3px"><div style="font-size:12px;font-weight:600;color:var(--ink)">192,000</div><div style="font-size:10px;color:var(--muted)">평단 168,000</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:600;color:var(--up)">+2.4%</td>
+          <td style="padding:4px 2px"><svg width="100%" height="28" viewBox="0 0 60 28" preserveAspectRatio="none"><path d="M0,22 C15,18 30,12 40,8 S52,5 60,3" fill="none" stroke="#34c759" stroke-width="1.5"/></svg></td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--hl)">
+          <td style="padding:8px 3px"><div style="font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">삼성전자</div><div style="font-size:10px;color:var(--muted)">50주</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--up)">+8.9%</td>
+          <td style="text-align:right;padding:8px 3px"><div style="font-size:12px;font-weight:600;color:var(--ink)">78,400</div><div style="font-size:10px;color:var(--muted)">평단 72,000</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:600;color:var(--up)">+1.0%</td>
+          <td style="padding:4px 2px"><svg width="100%" height="28" viewBox="0 0 60 28" preserveAspectRatio="none"><path d="M0,20 C15,17 30,14 40,12 S52,10 60,8" fill="none" stroke="#34c759" stroke-width="1.5"/></svg></td>
+        </tr>
+        <tr style="border-bottom:.5px solid var(--hl)">
+          <td style="padding:8px 3px"><div style="font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">NVDA</div><div style="font-size:10px;color:var(--muted)">5주 🇺🇸</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--up)">+41.1%</td>
+          <td style="text-align:right;padding:8px 3px"><div style="font-size:12px;font-weight:600;color:var(--ink)">$875</div><div style="font-size:10px;color:var(--muted)">평단 $620</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:600;color:var(--up)">+2.1%</td>
+          <td style="padding:4px 2px"><svg width="100%" height="28" viewBox="0 0 60 28" preserveAspectRatio="none"><path d="M0,24 C10,20 20,14 30,10 S45,5 60,2" fill="none" stroke="#34c759" stroke-width="1.5"/></svg></td>
+        </tr>
+        <tr>
+          <td style="padding:8px 3px"><div style="font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">카카오</div><div style="font-size:10px;color:var(--muted)">20주</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--down)">-21.5%</td>
+          <td style="text-align:right;padding:8px 3px"><div style="font-size:12px;font-weight:600;color:var(--ink)">40,800</div><div style="font-size:10px;color:var(--muted)">평단 52,000</div></td>
+          <td style="text-align:right;padding:8px 3px;font-weight:600;color:var(--down)">-0.3%</td>
+          <td style="padding:4px 2px"><svg width="100%" height="28" viewBox="0 0 60 28" preserveAspectRatio="none"><path d="M0,6 C10,8 25,14 35,18 S50,22 60,24" fill="none" stroke="#ff3b30" stroke-width="1.5"/></svg></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  </div><!-- /pf-content -->
+  </div>
 </div>
 
 </div><!-- /main -->
@@ -709,32 +812,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
     <div class="s-sect">주식 추가</div>
     <input class="ifield" type="text" placeholder="종목명 (예: 삼성전자)">
     <input class="ifield" type="text" placeholder="심볼 (예: 005930.KS)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      <input class="ifield" type="number" placeholder="수량" style="margin-bottom:0">
-      <input class="ifield" type="number" placeholder="평단가" style="margin-bottom:0">
-    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="ifield" type="number" placeholder="수량" style="margin-bottom:0"><input class="ifield" type="number" placeholder="평단가" style="margin-bottom:0"></div>
     <div style="margin-bottom:10px"></div>
     <select class="sfield"><option>통화 선택</option><option>KRW</option><option>USD</option></select>
     <div class="s-sect">현금 추가</div>
     <input class="ifield" type="text" placeholder="은행명">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      <select class="sfield" style="margin-bottom:0"><option>KRW</option><option>USD</option></select>
-      <input class="ifield" type="number" placeholder="잔액" style="margin-bottom:0">
-    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select class="sfield" style="margin-bottom:0"><option>KRW</option><option>USD</option></select><input class="ifield" type="number" placeholder="잔액" style="margin-bottom:0"></div>
     <div style="margin-bottom:10px"></div>
     <div class="s-sect">예적금 추가</div>
     <input class="ifield" type="text" placeholder="은행명">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      <input class="ifield" type="date" style="margin-bottom:0">
-      <input class="ifield" type="number" placeholder="이율 (%)" style="margin-bottom:0">
-    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input class="ifield" type="date" style="margin-bottom:0"><input class="ifield" type="number" placeholder="이율 (%)" style="margin-bottom:0"></div>
     <div style="margin-bottom:8px"></div>
     <input class="ifield" type="number" placeholder="만기금액">
     <button class="btn-primary">저장</button>
   </div>
 </div>
-
-<!-- ══ SHEETS ══ -->
 
 <!-- 채널 편집 -->
 <div class="s-ov" id="ov-sh-channel" onclick="closeSheet('sh-channel')"></div>
@@ -743,9 +835,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
   <div class="s-hd"><div class="s-title">채널 편집</div><button class="s-close" onclick="closeSheet('sh-channel')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
   <div class="s-body">
     <div class="s-sect">유튜브</div>
-    <div class="erow"><div class="eav">12시</div><div class="einfo"><div class="ename">12시에 만나요</div><div class="emeta">시황 · 13h 14h</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
+    <div class="erow"><div class="eav">12시</div><div class="einfo"><div class="ename">12시에 만나요</div><div class="emeta">주식 · 13h 14h</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
     <div class="erow"><div class="eav">경제</div><div class="einfo"><div class="ename">경제사냥꾼</div><div class="emeta">경제 · 9h 13h 18h 21h</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
-    <div class="erow"><div class="eav">슈페</div><div class="einfo"><div class="ename">슈페tv</div><div class="emeta">시황 · 9h 13h 18h 21h</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
+    <div class="erow"><div class="eav">슈페</div><div class="einfo"><div class="ename">슈페tv</div><div class="emeta">주식 · 9h 13h 18h 21h</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
     <div class="s-sect">뉴스 (RSS)</div>
     <div class="erow"><div class="eav">경</div><div class="einfo"><div class="ename">매일경제</div><div class="emeta">경제 · RSS</div></div><div class="eacts"><label class="toggle"><input type="checkbox" checked><div class="ttrack"></div><div class="tthumb"></div></label><button class="btn-del"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></div>
     <button class="btn-add" onclick="openSheet('sh-add-ch')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>채널 추가</button>
@@ -761,7 +853,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
     <input class="ifield" type="text" placeholder="채널명">
     <input class="ifield" type="text" placeholder="채널 ID 또는 핸들 (@username)">
     <select class="sfield"><option>종류 선택</option><option>유튜브</option><option>뉴스 (RSS)</option></select>
-    <select class="sfield"><option>카테고리 선택</option><option>시황</option><option>경제</option><option>종목</option><option>글로벌</option><option>일반</option></select>
+    <select class="sfield"><option>카테고리 선택</option><option>경제</option><option>주식</option><option>글로벌</option><option>일반</option></select>
     <select class="sfield"><option>포맷 선택</option><option>investment (매수/매도 시그널)</option><option>free (핵심요약)</option></select>
     <input class="ifield" type="text" placeholder="실행 시간 (예: 9,13,18,21)">
     <button class="btn-primary">추가하기</button>
@@ -793,41 +885,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
   <div class="s-hd"><div class="s-title">발송 시간 설정</div><button class="s-close" onclick="closeSheet('sh-schedule')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
   <div class="s-body">
     <div class="s-sect">인사이트</div>
-    <div class="time-row"><div class="time-label">오전 브리핑</div><div style="display:flex;align-items:center;gap:8px"><input type="time" value="08:30" style="font-size:14px;border:.5px solid var(--hls);border-radius:8px;padding:4px 8px;font-family:inherit;color:var(--primary);background:var(--parchment);outline:none"></div></div>
-    <div class="time-row"><div class="time-label">오후 브리핑</div><div style="display:flex;align-items:center;gap:8px"><input type="time" value="17:30" style="font-size:14px;border:.5px solid var(--hls);border-radius:8px;padding:4px 8px;font-family:inherit;color:var(--primary);background:var(--parchment);outline:none"></div></div>
+    <div class="time-row"><div class="time-label">오전 브리핑</div><input type="time" value="08:30" style="font-size:14px;border:.5px solid var(--hls);border-radius:8px;padding:4px 8px;font-family:inherit;color:var(--primary);background:var(--parchment);outline:none"></div>
+    <div class="time-row"><div class="time-label">오후 브리핑</div><input type="time" value="17:30" style="font-size:14px;border:.5px solid var(--hls);border-radius:8px;padding:4px 8px;font-family:inherit;color:var(--primary);background:var(--parchment);outline:none"></div>
     <div class="s-sect">미디어</div>
-    <div class="time-row"><div><div class="time-label">체크 주기</div><div style="font-size:11px;color:var(--muted);margin-top:2px">신규 영상 감지 간격</div></div><div style="display:flex;align-items:center;gap:8px"><select style="font-size:13px;border:.5px solid var(--hls);border-radius:8px;padding:6px 10px;font-family:inherit;background:var(--parchment);color:var(--ink);outline:none"><option>매 1시간</option><option>매 30분</option></select></div></div>
-    <div class="time-row"><div><div class="time-label">발송 허용 시간</div><div style="font-size:11px;color:var(--muted);margin-top:2px">이 시간 외 신규 영상은 다음날 발송</div></div><div style="text-align:right"><span style="font-size:13px;font-weight:500;color:var(--primary)">09:00 ~ 22:00</span></div></div>
+    <div class="time-row"><div><div class="time-label">체크 주기</div><div style="font-size:11px;color:var(--muted);margin-top:2px">신규 영상 감지 간격</div></div><select style="font-size:13px;border:.5px solid var(--hls);border-radius:8px;padding:6px 10px;font-family:inherit;background:var(--parchment);color:var(--ink);outline:none"><option>매 1시간</option><option>매 30분</option></select></div>
+    <div class="time-row"><div><div class="time-label">발송 허용 시간</div><div style="font-size:11px;color:var(--muted);margin-top:2px">이 시간 외 신규 영상은 다음날 발송</div></div><span style="font-size:13px;font-weight:500;color:var(--primary)">09:00~22:00</span></div>
     <button class="btn-primary" style="margin-top:16px">저장</button>
   </div>
 </div>
 
-<!-- API 키 관리 -->
+<!-- API 키 -->
 <div class="s-ov" id="ov-sh-api" onclick="closeSheet('sh-api')"></div>
 <div class="sheet" id="sh-api">
   <div class="s-handle"></div>
   <div class="s-hd"><div class="s-title">API 키 관리</div><button class="s-close" onclick="closeSheet('sh-api')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
   <div class="s-body">
-    <div class="api-row">
-      <div style="flex:1"><div class="api-name">Claude (Anthropic)</div><div class="api-desc">AI 요약 · 시황 분석</div><div class="api-url">console.anthropic.com/settings/keys</div></div>
-      <div><div class="api-status"><div class="api-dot warn"></div>79% 사용</div><div style="font-size:10px;color:var(--muted);margin-top:2px">주간 한도</div></div>
-    </div>
-    <div class="api-row">
-      <div style="flex:1"><div class="api-name">Telegram Bot</div><div class="api-desc">알림 발송</div><div class="api-url">t.me/BotFather → /newbot</div></div>
-      <div><div class="api-status"><div class="api-dot ok"></div>정상</div></div>
-    </div>
-    <div class="api-row">
-      <div style="flex:1"><div class="api-name">Supadata</div><div class="api-desc">유튜브 자막 추출</div><div class="api-url">supadata.ai/dashboard</div></div>
-      <div><div class="api-status"><div class="api-dot ok"></div>12/100건</div></div>
-    </div>
-    <div class="api-row">
-      <div style="flex:1"><div class="api-name">YouTube Data API v3</div><div class="api-desc">영상 탐지</div><div class="api-url">console.cloud.google.com</div></div>
-      <div><div class="api-status"><div class="api-dot ok"></div>정상</div></div>
-    </div>
-    <div class="api-row">
-      <div style="flex:1"><div class="api-name">GitHub Token</div><div class="api-desc">데이터 레포 푸시</div><div class="api-url">github.com/settings/tokens</div></div>
-      <div><div class="api-status"><div class="api-dot ok"></div>정상</div></div>
-    </div>
+    <div class="api-row"><div style="flex:1"><div class="api-name">Claude (Anthropic)</div><div class="api-desc">AI 요약 · 시황 분석</div><div class="api-url">console.anthropic.com/settings/keys</div></div><div><div class="api-status"><div class="api-dot warn"></div>79% 사용</div><div style="font-size:10px;color:var(--muted);margin-top:2px">주간 한도</div></div></div>
+    <div class="api-row"><div style="flex:1"><div class="api-name">Telegram Bot</div><div class="api-desc">알림 발송</div><div class="api-url">t.me/BotFather → /newbot</div></div><div><div class="api-status"><div class="api-dot ok"></div>정상</div></div></div>
+    <div class="api-row"><div style="flex:1"><div class="api-name">Supadata</div><div class="api-desc">유튜브 자막 추출</div><div class="api-url">supadata.ai/dashboard</div></div><div><div class="api-status"><div class="api-dot ok"></div>12/100건</div></div></div>
+    <div class="api-row"><div style="flex:1"><div class="api-name">YouTube Data API v3</div><div class="api-desc">영상 탐지</div><div class="api-url">console.cloud.google.com</div></div><div><div class="api-status"><div class="api-dot ok"></div>정상</div></div></div>
+    <div class="api-row"><div style="flex:1"><div class="api-name">GitHub Token</div><div class="api-desc">데이터 레포 푸시</div><div class="api-url">github.com/settings/tokens</div></div><div><div class="api-status"><div class="api-dot ok"></div>정상</div></div></div>
     <div class="s-note">키 변경 시 해당 서비스 재등록 필요. URL을 눌러 새 키 발급 후 GAS 또는 GitHub Actions Secrets에 업데이트하세요.</div>
   </div>
 </div>
@@ -839,26 +916,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue'
   <div class="s-hd"><div class="s-title">관리자 설정</div><button class="s-close" onclick="closeSheet('sh-admin')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
   <div class="s-body">
     <div class="admin-grid">
-      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-channel')">
-        <div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-        <div class="admin-title">채널 관리</div>
-        <div class="admin-desc">추가·삭제·카테고리</div>
-      </div>
-      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-recv')">
-        <div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="admin-title">수신자 관리</div>
-        <div class="admin-desc">인사이트·미디어 별도</div>
-      </div>
-      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-schedule')">
-        <div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="admin-title">발송 시간</div>
-        <div class="admin-desc">인사이트·미디어 설정</div>
-      </div>
-      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-api')">
-        <div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <div class="admin-title">API 키 관리</div>
-        <div class="admin-desc">발급·상태·URL</div>
-      </div>
+      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-channel')"><div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="admin-title">채널 관리</div><div class="admin-desc">추가·삭제·카테고리</div></div>
+      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-recv')"><div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="admin-title">수신자 관리</div><div class="admin-desc">인사이트·미디어 별도</div></div>
+      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-schedule')"><div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="admin-title">발송 시간</div><div class="admin-desc">인사이트·미디어 설정</div></div>
+      <div class="admin-card" onclick="closeSheet('sh-admin');openSheet('sh-api')"><div class="admin-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="admin-title">API 키 관리</div><div class="admin-desc">발급·상태·URL</div></div>
     </div>
     <div class="s-sect">API 사용량</div>
     <div style="background:var(--parchment);border-radius:12px;padding:14px;border:.5px solid var(--hl)">
@@ -884,48 +945,17 @@ function openSheet(id){const ov=document.getElementById('ov-'+id);if(ov)ov.class
 function closeSheet(id){const ov=document.getElementById('ov-'+id);if(ov)ov.classList.remove('show');document.getElementById(id).classList.remove('show');document.body.style.overflow=''}
 function scrollTo2(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
 
-// Portfolio lock
-const PF_PW = '1234'; // 실제 배포 시 변경
-function checkPfPw(){
-  const v=document.getElementById('pf-pw-input').value;
-  if(v===PF_PW){unlockPf();}
-  else{document.getElementById('pf-err').style.display='block';document.getElementById('pf-pw-input').value='';}
-}
-function unlockPf(){
-  document.getElementById('pf-lock').style.display='none';
-  document.getElementById('pf-content').style.display='block';
-  sessionStorage.setItem('pf_unlocked','1');
-}
-function lockPf(){
-  document.getElementById('pf-lock').style.display='flex';
-  document.getElementById('pf-content').style.display='none';
-  document.getElementById('pf-pw-input').value='';
-  sessionStorage.removeItem('pf_unlocked');
-}
+const PF_PW='1234';
+function checkPfPw(){const v=document.getElementById('pf-pw-input').value;if(v===PF_PW){unlockPf();}else{document.getElementById('pf-err').style.display='block';document.getElementById('pf-pw-input').value='';}}
+function unlockPf(){document.getElementById('pf-lock').style.display='none';document.getElementById('pf-content').style.display='block';sessionStorage.setItem('pf_unlocked','1');}
+function lockPf(){document.getElementById('pf-lock').style.display='flex';document.getElementById('pf-content').style.display='none';document.getElementById('pf-pw-input').value='';sessionStorage.removeItem('pf_unlocked');}
 async function tryBiometric(){
   if(!window.PublicKeyCredential){alert('이 브라우저는 생체인증을 지원하지 않습니다.');return;}
-  try{
-    const cred=await navigator.credentials.get({
-      publicKey:{
-        challenge:new Uint8Array(32),
-        timeout:60000,
-        userVerification:'required',
-        rpId:window.location.hostname||'localhost',
-      }
-    });
-    if(cred)unlockPf();
-  }catch(e){
-    // 등록된 키 없을 때 — 비밀번호로 대체 안내
-    document.getElementById('pf-pw-input').focus();
-  }
+  try{const cred=await navigator.credentials.get({publicKey:{challenge:new Uint8Array(32),timeout:60000,userVerification:'required',rpId:window.location.hostname||'localhost'}});if(cred)unlockPf();}
+  catch(e){document.getElementById('pf-pw-input').focus();}
 }
-// 세션 유지
-if(sessionStorage.getItem('pf_unlocked')==='1'){
-  document.getElementById('pf-lock').style.display='none';
-  document.getElementById('pf-content').style.display='block';
-}
+if(sessionStorage.getItem('pf_unlocked')==='1'){document.getElementById('pf-lock').style.display='none';document.getElementById('pf-content').style.display='block';}
 
-// Chip chart
 function selChip(el,name,price,chg,isUp){
   document.querySelectorAll('.mchip').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');
@@ -933,17 +963,20 @@ function selChip(el,name,price,chg,isUp){
   const ce=document.getElementById('cc');ce.textContent=(chg>=0?'+':'')+chg+'%';ce.className=chg>=0?'up':'down';
   const color=isUp?'#34c759':'#ff3b30';
   const wrap=document.getElementById('cc-wrap');
-  const w=wrap.clientWidth||340;
-  const path=isUp?`M0,68 C${w*.2},58 ${w*.4},42 ${w*.5},34 S${w*.75},18 ${w},8`:`M0,8 C${w*.2},18 ${w*.4},36 ${w*.5},46 S${w*.75},62 ${w},70`;
-  wrap.innerHTML=`<svg width="${w}" height="80" viewBox="0 0 ${w} 80" preserveAspectRatio="none">
-    <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity=".15"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
-    <path d="${path} L${w},80 L0,80 Z" fill="url(#cg)"/>
-    <line x1="0" y1="${isUp?8:70}" x2="${w}" y2="${isUp?8:70}" stroke="${color}" stroke-width=".5" stroke-dasharray="4,3" opacity=".4"/>
+  const w=wrap.offsetWidth||360;
+  const h=80;
+  const path=isUp?`M0,${h*.85} C${w*.2},${h*.72} ${w*.4},${h*.52} ${w*.5},${h*.42} S${w*.75},${h*.22} ${w},${h*.1}`
+                 :`M0,${h*.1} C${w*.2},${h*.22} ${w*.4},${h*.45} ${w*.5},${h*.57} S${w*.75},${h*.77} ${w},${h*.87}`;
+  wrap.innerHTML=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity=".18"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+    <path d="${path} L${w},${h} L0,${h} Z" fill="url(#cg)"/>
+    <line x1="0" y1="${isUp?h*.1:h*.87}" x2="${w}" y2="${isUp?h*.1:h*.87}" stroke="${color}" stroke-width=".5" stroke-dasharray="4,3" opacity=".35"/>
     <path d="${path}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round"/>
-    <text x="4" y="${isUp?16:76}" font-size="9" fill="${color}" font-family="-apple-system,sans-serif" font-weight="500">${isUp?'▲ 고점':'▼ 저점'} ${price.toLocaleString()}</text>
+    <text x="10" y="${isUp?16:h-6}" font-size="9" fill="${color}" font-family="-apple-system,sans-serif" font-weight="500">${isUp?'▲':'▼'} ${price.toLocaleString()}</text>
   </svg>`;
 }
 window.addEventListener('load',()=>{const c=document.querySelector('.mchip.active');if(c)c.click()});
+window.addEventListener('resize',()=>{const c=document.querySelector('.mchip.active');if(c)c.click()});
 </script>
 </body>
 </html>
